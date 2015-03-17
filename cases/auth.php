@@ -8,22 +8,26 @@ require_once "config.php";
 
 $linkedIn=new Happyr\LinkedIn\LinkedIn('v3x1pj441nl9', '3ifR7tAuTKrzTUHH');
 if ($linkedIn->isAuthenticated()) {
+	
+
 	//we know that the user is authenticated now. Start query the API
 	$user=$linkedIn->api('v1/people/~:(id,formattedName,numConnections,pictureUrl,publicProfileUrl,emailAddress)');	
 	echo "Welcome ".$user['id'] .$user['formattedName'] .$user['publicProfileUrl'];	
 	$conn = new mysqli($mysql_hostname, $mysql_user, $mysql_password, $mysql_database);
-			
+	$_SESSION['user'] = $user;
 		$sql = "INSERT INTO users (id_linkedin,formattedName,numConnections,pictureUrl,publicProfileUrl,emailAddress) VALUES('$user[id]','$user[formattedName]','$user[numConnections]','$user[pictureUrl]','$user[publicProfileUrl]','$user[emailAddress]')";
 		$return = "SELECT * FROM users WHERE emailAddress LIKE '$user[emailAddress]'";
 		$res = mysqli_query($conn,$return);
 		
 		if (mysqli_num_rows($res) >0){
-			$url_cases = 'http://3737234d.ngrok.com/cases/cases.php';			
+			$url_cases = 'http://3737234d.ngrok.com/cases/cases.php';
 			header("Location: " . $url_cases);
+			$id_linkedin_teste = $linkedIn->api->id;
+			echo "teste" .$id_linkedin_teste;
 		}
 	//Creates record	
 		elseif (mysqli_query($conn, $sql)) {
-		$url_cases = 'http://3737234d.ngrok.com/cases/cases.php';
+		$url_cases = ' http://3737234d.ngrok.com/cases/cases.php';
 			echo "New record created successfully";
 	
 		} else {
