@@ -8,8 +8,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require 'config.php';
 //selects case
-$ID_case = '1';
-$_SESSION['ID_case'] = $ID_case;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -64,52 +62,20 @@ $_SESSION['ID_case'] = $ID_case;
                   <div class="progress"><div class="progress-bar"></div></div>
                   <div class="bs-wizard-dot"></div>                  
                 </div>                
-                <div class="col-xs-4 bs-wizard-step active"><!-- complete -->
+                <div class="col-xs-4 bs-wizard-step complete"><!-- complete -->
                   <div class="text-center bs-wizard-stepnum"><i class="fa fa-trophy"></i><i class="fa fa-trophy"></i> 2°Etapa</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <div class="bs-wizard-dot"></div>
                   <div class="bs-wizard-info text-center">Solucione o Desafio da Empresa</div>
                 </div>                
-                <div class="col-xs-4 bs-wizard-step disabled"><!-- active -->
+                <div class="col-xs-4 bs-wizard-step active"><!-- active -->
                   <div class="text-center bs-wizard-stepnum"><i class="fa fa-trophy"></i><i class="fa fa-trophy"></i><i class="fa fa-trophy"></i> 3°Etapa</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <div class="bs-wizard-dot"></div>
                   <div class="bs-wizard-info text-center">Solução compartilhada com o Mercado de Trabalho</div>
             </div>
             </div>
-            </div>    
-    <?php 
     
-    $query = mysqli_query($conn,"SELECT * FROM cases WHERE ID_case='$ID_case'");
-    while ($caseDesc = mysqli_fetch_array($query)){
-    ?>    
-    <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="box">
-                <div class="box-icon">
-                    <span class="fa fa-4x fa-cubes"></span>
-                </div>
-                <div class="info">
-                    <h4 class="text-center">Desafio <?php echo $caseDesc['companyName'];?></h4>
-                    <h4 class="text-center"><?php echo $caseDesc['caseTitle'];?></h4>
-                    <p><?php echo $caseDesc['caseDescription'];?></p>
-                <?php }?>
-                </div>
-            </div>
-        </div>        
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="box">
-                <div class="box-icon">
-                    <span class="fa fa-4x fa-exclamation"></span>
-                </div>
-                <div class="info"><form method="POST" action="form_solution.php"> 
-                    <h4 class="text-center">Sua Solução</h4>
-                    <span class="input-group"><textarea name="caseSolution" id="caseSolution" class="form-control" rows="9" cols="60"
-                     placeholder="Você tem 600 palavras para resolver esse desafio."></textarea></span>
-                    <button type="submit" class="btn">Enviar</button>
-                    </form>
-                </div>
     </header>
             <hr>  
      <footer class="text-center">
@@ -155,16 +121,5 @@ $_SESSION['ID_case'] = $ID_case;
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-	<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-58803212-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </body>
 </html>
