@@ -49,7 +49,7 @@ font-family: 'Open Sans', sans-serif;
     margin-bottom: 0;
 }
 
-.navbar-inverse .navbar-nav > li > a{
+.navbar-inverse .navbar-nav> li > a{
     color: white;
 }
 
@@ -548,4 +548,16 @@ header .jumbotron{
 .btn-lg{
 	background-color: #e6e6e6;
 	opacity: 0.9;
+}
+
+.timer {
+	font-size: 12px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+    
+}
+.navbar-right .navbar-brand{
+	font-size:14px;
 }

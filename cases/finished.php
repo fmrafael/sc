@@ -1,7 +1,7 @@
 <?php session_start();
 //validates user can access cases.php
 if($_SESSION['id_linkedin'] != true) {
-	header("Location: auth.php");    
+	header("Location: auth.php");
     exit();
 }	
 error_reporting(E_ALL);
@@ -15,8 +15,8 @@ require 'config.php';
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Plataforma para Gestão de Treinamento Corporativo EAD" content="Sistema de Ensino e de Gestão (LMS) de Treinamento a Distância EAD. Mendl permite criação e compartilhamento de cursos e materiais de ensino para que alunos e professores fiquem mais conectados e engajados.">
-    <title>Mendl Gestão de Treinamento a Distância</title>
+    <meta name="Mendl CrowdCaseSolution, conecta talentos, empresas, universidades e headhunters na solução de desafios reais de mercado" content="São sempre novos desafios que permite aos talentos e candidatos a apoiarem diretamente as empresas, através da resolução de casos reais de negócios">
+    <title>Mendl CrowdCaseSolution | Talentos. Empresas. Universidades. Headhunters unidos para a solução de DESAFIOS reais.</title><title>Mendl Gestão de Treinamento a Distância</title>
     <!-- Bootstrap Core CSS -->
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-aweso	me/4.3.0/css/font-awesome.min.css">
@@ -42,20 +42,20 @@ require 'config.php';
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>                   
-                          <a class="navbar-brand" href="/index"><i class="fa fa-star"></i> Mendl</a>
+                          <a class="navbar-brand" href="/cases/linkedin"><i class="fa fa-star"></i> Mendl CrowdCaseSolution</a>
                     </li>				      
                     </ul>
 			
 			<ul class="nav navbar-nav navbar-brand"><li>
-						<?php echo  $_SESSION['formattedName'] ?>							
+						
 						</li>
 					</ul>
 					</div>
         </div>
     </nav>
     <!-- Full Width Image Header -->
-    <header>    
-     <div class="container">		  
+    <header class="header-image">
+    <div class="container">		  
             <div class="row bs-wizard" style="border-bottom:0;">                                                      
                 <div class="col-xs-4 bs-wizard-step complete"><!-- complete -->
                   <div class="text-center bs-wizard-stepnum"><i class="fa fa-trophy"></i> 1°Etapa</div>
@@ -66,7 +66,7 @@ require 'config.php';
                   <div class="text-center bs-wizard-stepnum"><i class="fa fa-trophy"></i><i class="fa fa-trophy"></i> 2°Etapa</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <div class="bs-wizard-dot"></div>
-                  <div class="bs-wizard-info text-center">Solucione o Desafio da Empresa</div>
+                  <div class="bs-wizard-info text-center"></div>
                 </div>                
                 <div class="col-xs-4 bs-wizard-step active"><!-- active -->
                   <div class="text-center bs-wizard-stepnum"><i class="fa fa-trophy"></i><i class="fa fa-trophy"></i><i class="fa fa-trophy"></i> 3°Etapa</div>
@@ -76,7 +76,20 @@ require 'config.php';
             </div>
             </div>
     
-    </header>
+   <div>
+        <div class="headline">
+            <div class="container">                   
+            <div class="col-xs-10 pull-right">                                                                                 
+                <h3 class="text-center">Parabéns, <strong><?php echo  $_SESSION['formattedName']; ?>!</strong> 
+                Mais um desafio resolvido. Quanto mais você participar, maiores suas chances
+                de conseguir aquele emprego dos seus sonhos. Por isso, fique atento aos avisos de novos desafios e participe.</h3> 
+                                <h4>Sua boa solução será compartilhada com a empresa e com headhunters.</h4>                                 
+            </div>
+            </div>
+        </div>
+    </header>   
+   <hr>
+ 
             <hr>  
      <footer class="text-center">
         <div class="footer-above">
@@ -88,9 +101,9 @@ require 'config.php';
                         <i class="fa fa-linkedin-square fa-2x"></i>
                         <i class="fa fa-facebook-square fa-2x"></i>                        
                     </div>
-                    <div class="footer-col col-md-6">
-                        <h3>Sobre a Mendl</h3>
-                        <p class="lead">A missão da Mendl é gerar valor pela gestão de treinamento (LMS), para reduzir custos e integrar processos. <a href="http://mendl.com.br/mendl/login/index.php">Cadastre-se grátis</a>.</p>
+                       <div class="footer-col col-md-6">
+                        <h3>Sobre a Mendl CrowdCaseSolution</h3>
+                        <p>A Mendl CrowdCaseSolution é uma divisão da Mendl Gestão de Ensino a Distância que une Talentos, Universidades, Empresas e HeadHunteres para a solução de desafios reais de empresas e melhora o processo de seleção de pessoas.</p>
                     </div>
                 </div>
             </div>
@@ -104,22 +117,13 @@ require 'config.php';
                 </div>
             </div>
         </div>  
- <ul class="nav pull-right scroll-down">
-  <li><a href="#"><i class="fa fa-chevron-down fa-2x"></i></a></li>
-</ul>
     </footer>    
     </div>    
     </div>
-    <!-- /.container -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
-    
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</body>
+    </body>
 </html>

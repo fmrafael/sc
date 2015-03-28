@@ -1,16 +1,21 @@
 <?php session_start();
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
 require_once "vendor/autoload.php";
 require_once "config.php";
 
 $linkedIn=new Happyr\LinkedIn\LinkedIn('v3x1pj441nl9', '3ifR7tAuTKrzTUHH');
 if ($linkedIn->isAuthenticated()) {	
-	//we know that the user is authenticated now. Start query the API
-	$user=$linkedIn->api('v1/people/~:(id,formattedName,numConnections,pictureUrl,publicProfileUrl,emailAddress,location,positions)');			
-	
+	$user  =  $linkedIn->api('v1/people/~:(id,formattedName,numConnections,pictureUrl,publicProfileUrl,emailAddress,location,positions)');					
+	$share = $linkedIn->api('v1/people/~/shares',array ('format' => 'json'),'POST', array(
+			'content' => array('title' => 'Mendl CrowdCaseSolution',
+								'description' => 'Resolva Cases de Empresas Reais e turbine seu currículo!',
+								'submitted-url' => 'https://mendl.com.br/cases/linkedin'),
+			'comment' => 'Acessei a Mendl com meu login do linkedin e resolvi mais um DESAFIO real de uma empresa.',
+			'visibility' => array('code' => 'anyone' )
+	)
+	);
+	$_SESSION['share'] = $share;
 	$_SESSION['id_linkedin'] = $user['id'];
 	$_SESSION['formattedName'] = $user['formattedName'];		
 		$dt = date("Y-m-d H:i:s");
@@ -37,6 +42,6 @@ if ($linkedIn->isAuthenticated()) {
 }
 //if not authenticated
 $url = $linkedIn->getLoginUrl(array(
-		redirect_uri => 'http://f4aee94.ngrok.com/cases/auth.php'));
+		redirect_uri => 'http://5a2eaca7.ngrok.com/cases/auth.php'));
 header("Location: " . $url);
 ?>

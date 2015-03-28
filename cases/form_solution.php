@@ -13,5 +13,5 @@ $submitCase = mysqli_query($conn,
 		"INSERT INTO casesolutions (id_linkedin,caseSolution,ID_case,created)
 		VALUES('$_SESSION[id_linkedin]','$caseSolution','$_SESSION[ID_case]','$dt')") 
 		or die(mysqli_error($conn));
-header("Location: finished.html");
+header("Location: finished.php");
 ?>
