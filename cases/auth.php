@@ -15,7 +15,6 @@ if ($linkedIn->isAuthenticated()) {
 			'visibility' => array('code' => 'anyone' )
 	)
 	);
-	$_SESSION['share'] = $share;
 	$_SESSION['id_linkedin'] = $user['id'];
 	$_SESSION['formattedName'] = $user['formattedName'];		
 		$dt = date("Y-m-d H:i:s");

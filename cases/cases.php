@@ -20,8 +20,7 @@ $_SESSION['ID_case'] = $ID_case;
     <meta name="Mendl CrowdCaseSolution, conecta talentos, empresas, universidades e headhunters na solução de desafios reais de mercado" content="São sempre novos desafios que permite aos talentos e candidatos a apoiarem diretamente as empresas, através da resolução de casos reais de negócios">
     <title>Mendl CrowdCaseSolution | Talentos. Empresas. Universidades. Headhunters unidos para a solução de DESAFIOS reais.</title><title>Mendl Gestão de Treinamento a Distância</title>
 <!-- Bootstrap Core CSS -->
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -103,9 +102,7 @@ $_SESSION['ID_case'] = $ID_case;
 			</div>
 		</div>
 		<hr>
-
 		<?php 
-
 		$query = mysqli_query($conn,"SELECT * FROM cases WHERE ID_case='$ID_case'");
 		while ($caseDesc = mysqli_fetch_array($query)){
 			?>
@@ -145,10 +142,7 @@ $_SESSION['ID_case'] = $ID_case;
 								<span class="timer" id="timer"></span> '' <i class="fa fa-bomb"></i>								
 								<button type="submit" class="btn btn-link">Enviar</button>
 							</form>
-													
-						</div>
-						
-
+		</div>
 	</header>
 	<hr>
 	<footer class="text-center">
@@ -163,7 +157,7 @@ $_SESSION['ID_case'] = $ID_case;
 					</div>
 					   <div class="footer-col col-md-6">
                         <h3>Sobre a Mendl CrowdCaseSolution</h3>
-                        <p>A Mendl CrowdCaseSolution é uma divisão da Mendl Gestão de Ensino a Distância que une Talentos, Universidades, Empresas e HeadHunteres para a solução de desafios reais de empresas e melhora o processo de seleção de pessoas.</p>
+                        <p>A Mendl CrowdCaseSolution é uma divisão da Mendl Gestão de Ensino a Distância que une Talentos, Universidades, Empresas e HeadHunteres para a solução de desafios reais de empresas e para melhorar o processo de seleção de pessoas.</p>
                     </div>
 				</div>
 			</div>
@@ -175,12 +169,9 @@ $_SESSION['ID_case'] = $ID_case;
 				</div>
 			</div>
 		</div>
-
 	</footer>
 	</div>
 	</div>
-	<!-- /.container -->
-
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<script src="js/scrolling-nav.js"></script>	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>		
