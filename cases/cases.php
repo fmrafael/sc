@@ -138,7 +138,7 @@ $_SESSION['ID_case'] = $ID_case;
 								<h4 class="text-center">Sua Solução</h4>
 								<textarea name="caseSolution" id="caseSolution"
 								class="form-control" rows="9" cols="60"
-								placeholder="Você tem 15 minutos."></textarea>
+								placeholder="Você tem 25 minutos."></textarea>
 								<span class="timer" id="timer"></span> '' <i class="fa fa-bomb"></i>								
 								<button type="submit" class="btn btn-link">Enviar</button>
 							</form>
@@ -176,7 +176,7 @@ $_SESSION['ID_case'] = $ID_case;
 	<script src="js/scrolling-nav.js"></script>	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>		
 		<script type="text/javascript">
-		var count=900;
+		var count=1500;
 		var minutes = Math.floor(count / 60);
 		var counter=setInterval(timer, 1000); //1000 will  run it every 1 second
 		function timer()

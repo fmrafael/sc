@@ -63,17 +63,12 @@ $result=mysqli_query($conn, $select_cases);
 	<!-- Full Width Image Header -->
 	<header>
 <div class="container">
-
 <div class="col-lg-12">
 <div class="page-header">
 <h1>Selecione um Desafio!</h1>
-<h4>Cada Desafio realizado garante ao autor da boa ideia prêmios, e claro, a oportunidade de apoiar uma empresa e se diferenciar no mercado.</h4>
-</div>
-
-		
+<h4>Cada Desafio realizado permite ao talento ganhar prêmios e, claro, a oportunidade de apoiar uma empresa e se diferenciar no mercado.</h4>
+</div>		
 		</div>
-	
-
 		<div class="row">
 		<div class="col-lg-12">
 		</div>
@@ -100,15 +95,17 @@ $result=mysqli_query($conn, $select_cases);
 		<th>Desafio</th>
 		<th>Competências</th>
 		<th>Processo Seletivo</th>
+		<th></th>
 		</tr>";
-
-
-while ($record = mysqli_fetch_array($result)) { 
+while ($row = mysqli_fetch_array($result)) { 
+	
 echo "<tr>";
-echo "<td>" .$record['companyName']. "</td>";
-echo "<td>" .$record['caseTitle']. "</td>";
-echo "<td>" .'#50pontosprimeirocase#negociação#estratégia#'. "</td>";
-echo "<td>" .$record['processSelection']. "</td>";
+echo "<td>" .$row['companyName']. "</td>";
+echo "<td>" .$row['caseTitle']. "</td>";
+echo "<td>" .'#50pontos#negociação#estratégia#'. "</td>";
+echo "<td>" .$row['processSelection']. "</td>";
+echo "<td><a href=\"edit.php?id=" . $row['ID_case'] . "\">" . "Resolver" . "</a></td>";
+
 "</tr>"; 
 }
 echo "</table>";

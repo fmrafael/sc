@@ -10,6 +10,9 @@ namespace Happyr\LinkedIn\Http;
  */
 class UrlGenerator implements UrlGeneratorInterface
 {
+	public function __toString() {
+		return $this->UrlGenerator;
+	}
     /**
      * @var array knownLinkedInParams
      *
@@ -54,15 +57,15 @@ class UrlGenerator implements UrlGeneratorInterface
         }
 
         if ($params) {
-            //it needs to be PHP_QUERY_RFC3986. We want to have %20 between scopes
-            // we cant run http_build_query($params, null, '&', PHP_QUERY_RFC3986); because it is not supported in php 5.3 or hhvm
-            $url .= '?';
-            foreach ($params as $key => $value) {
-                $url .= sprintf('%s=%s&', rawurlencode($key), rawurlencode($value));
-            }
-            $url=rtrim($url, '&');
+        	//it needs to be PHP_QUERY_RFC3986. We want to have %20 between scopes
+        	// we cant run http_build_query($params, null, '&', PHP_QUERY_RFC3986); because it is not supported in php 5.3 or hhvm
+        	$url .= '?';
+        	foreach ($params as $key => $value) {
+        		$url .= sprintf('%s=%s&', rawurlencode($key), rawurlencode($value));
+        	}
+        	$url=rtrim($url, '&');
         }
-
+        
         return $url;
     }
 
