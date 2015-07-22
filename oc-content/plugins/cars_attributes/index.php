@@ -224,9 +224,34 @@ Plugin update URI: cars-attributes
         
         $blindado = (Params::getParam("blindado") != '') ? 1 : 0 ;
 
+        $ar_condicionado = (Params::getParam("ar_condicionado") != '') ? 1 : 0 ;
+        $teto_solar = (Params::getParam("teto_solar") != '') ? 1 : 0 ;
+        $direcao_hidraulica = (Params::getParam("direcao_hidraulica") != '') ? 1 : 0 ;
+        $trio_eletrico = (Params::getParam("trio_eletrico") != '') ? 1 : 0 ;
+        $bancos_couro = (Params::getParam("bancos_couro") != '') ? 1 : 0 ;
+        $insulfilm = (Params::getParam("insulfilm") != '') ? 1 : 0 ;
+        $roda_liga = (Params::getParam("roda_liga") != '') ? 1 : 0 ;
+        $piloto = (Params::getParam("piloto") != '') ? 1 : 0 ;
+
+
+
+        $airbag = (Params::getParam("ar_condicionado") != '') ? 1 : 0 ;
+        $freios_abs = (Params::getParam("teto_solar") != '') ? 1 : 0 ;
+        $controle_tracao = (Params::getParam("direcao_hidraulica") != '') ? 1 : 0 ;
+        $quatro = (Params::getParam("quatro") != '') ? 1 : 0 ;
+        $computador_bordo = (Params::getParam("computador_bordo") != '') ? 1 : 0 ;
+        $bluetooth = (Params::getParam("bluetooth") != '') ? 1 : 0 ;
+        $entrada_mp3 = (Params::getParam("entrada_mp3") != '') ? 1 : 0 ;
+        $gps = (Params::getParam("gps") != '') ? 1 : 0 ;
+
+
+
+
+        
+
 
         Session::newInstance()->_setForm('pc_year', Params::getParam("year"));
-       
+        Session::newInstance()->_setForm('pc_year_fabricado', Params::getParam("year_fabricado"));      
         Session::newInstance()->_setForm('pc_seats', Params::getParam("seats"));
       
        
@@ -240,12 +265,35 @@ Plugin update URI: cars-attributes
         Session::newInstance()->_setForm('pc_licenciado', $licenciado);
         Session::newInstance()->_setForm('pc_garantia_fabrica', $garantia_fabrica);
         Session::newInstance()->_setForm('pc_blindado', $blindado);
+
+        Session::newInstance()->_setForm('pc_ar_condicionado', $ar_condicionado);
+        Session::newInstance()->_setForm('pc_teto_solar', $teto_solar);
+        Session::newInstance()->_setForm('pc_direcao_hidraulica', $direcao_hidraulica);
+        Session::newInstance()->_setForm('pc_trio_eletrico', $trio_eletrico);
+        Session::newInstance()->_setForm('pc_bancos_couro', $bancos_couro);
+        Session::newInstance()->_setForm('pc_insulfilm', $insulfilm);
+        Session::newInstance()->_setForm('pc_roda_liga', $roda_liga);
+        Session::newInstance()->_setForm('pc_piloto', $piloto);
+
+        Session::newInstance()->_setForm('pc_airbag', $ar_condicionado);
+        Session::newInstance()->_setForm('pc_freios_abs', $teto_solar);
+        Session::newInstance()->_setForm('pc_controle_tracao', $direcao_hidraulica);
+        Session::newInstance()->_setForm('pc_quatro', $trio_eletrico);
+        Session::newInstance()->_setForm('pc_computador_bordo', $bancos_couro);
+        Session::newInstance()->_setForm('pc_bluetooth', $insulfilm);
+        Session::newInstance()->_setForm('pc_entrada_mp3', $roda_liga);
+        Session::newInstance()->_setForm('pc_gps', $piloto);
+
+
+
+
        
         Session::newInstance()->_setForm('pc_make', Params::getParam("make"));
         Session::newInstance()->_setForm('pc_model', Params::getParam("model"));
         Session::newInstance()->_setForm('pc_car_type', Params::getParam("car_type"));
         // keep values on session
         Session::newInstance()->_keepForm('pc_year');
+        Session::newInstance()->_keepForm('pc_year_fabricado');
        
         Session::newInstance()->_keepForm('pc_seats');
        
@@ -260,6 +308,28 @@ Plugin update URI: cars-attributes
         Session::newInstance()->_keepForm('pc_licenciado');
         Session::newInstance()->_keepForm('pc_garantia_fabrica');
         Session::newInstance()->_keepForm('pc_blindado');
+
+        Session::newInstance()->_keepForm('pc_ar_condicionado');
+        Session::newInstance()->_keepForm('pc_teto_solar');
+        Session::newInstance()->_keepForm('pc_direcao_hidraulica');
+        Session::newInstance()->_keepForm('pc_trio_eletrico');
+        Session::newInstance()->_keepForm('pc_bancos_couro');
+        Session::newInstance()->_keepForm('pc_insulfilm');
+        Session::newInstance()->_keepForm('pc_roda_liga');
+        Session::newInstance()->_keepForm('pc_piloto');
+
+
+        Session::newInstance()->_keepForm('pc_airbag');
+        Session::newInstance()->_keepForm('pc_freios_abs');
+        Session::newInstance()->_keepForm('pc_controle_tracao');
+        Session::newInstance()->_keepForm('pc_quatro');
+        Session::newInstance()->_keepForm('pc_computador_bordo');
+        Session::newInstance()->_keepForm('pc_bluetooth');
+        Session::newInstance()->_keepForm('pc_entrada_mp3');
+        Session::newInstance()->_keepForm('pc_gps');
+
+
+
        
         Session::newInstance()->_keepForm('pc_make');
         Session::newInstance()->_keepForm('pc_model');
@@ -274,16 +344,43 @@ Plugin update URI: cars-attributes
        
        
         $year     = (Params::getParam("year") == '') ? null : Params::getParam("year");
+        $year_fabricado     = (Params::getParam("year_fabricado") == '') ? null : Params::getParam("year_fabricado");
         $warranty = (Params::getParam("warranty")!='') ? 1 : 0;
         $ipva = (Params::getParam("ipva")!='') ? 1 : 0;
         $licenciado = (Params::getParam("licenciado")!='') ? 1 : 0;
         $garantia_fabrica = (Params::getParam("garantia_fabrica")!='') ? 1 : 0;
         $blindado = (Params::getParam("blindado")!='') ? 1 : 0;
+
+        $ar_condicionado = (Params::getParam("ar_condicionado")!='') ? 1 : 0;
+        $teto_solar = (Params::getParam("teto_solar")!='') ? 1 : 0;
+        $direcao_hidraulica = (Params::getParam("direcao_hidraulica")!='') ? 1 : 0;
+        $trio_eletrico = (Params::getParam("trio_eletrico")!='') ? 1 : 0;
+        $bancos_couro = (Params::getParam("bancos_couro")!='') ? 1 : 0;
+        $insulfilm = (Params::getParam("insulfilm")!='') ? 1 : 0;
+        $roda_liga = (Params::getParam("roda_liga")!='') ? 1 : 0;
+        $piloto = (Params::getParam("piloto")!='') ? 1 : 0;
+
+
+        $airbag = (Params::getParam("airbag")!='') ? 1 : 0;
+        $freios_abs = (Params::getParam("freios_abs")!='') ? 1 : 0;
+        $controle_tracao = (Params::getParam("controle_tracao")!='') ? 1 : 0;
+        $quatro = (Params::getParam("quatro")!='') ? 1 : 0;
+        $computador_bordo = (Params::getParam("computador_bordo")!='') ? 1 : 0;
+        $bluetooth = (Params::getParam("bluetooth")!='') ? 1 : 0;
+        $entrada_mp3 = (Params::getParam("entrada_mp3")!='') ? 1 : 0;
+        $gps = (Params::getParam("gps")!='') ? 1 : 0;
+
+
+
+
+
+
         $new      = (Params::getParam("new")!='') ? 1 : 0;        
         $array = array(
        
             'seats'         => Params::getParam("seats"),
             'year'          => $year,
+            'year_fabricado'   => $year_fabricado,
             'transmission'  => Params::getParam("transmission"),
             'fuel'          => Params::getParam("fuel"),
             'seller'        => Params::getParam("seller"),
@@ -291,7 +388,26 @@ Plugin update URI: cars-attributes
             'ipva'          => $ipva,
             'licenciado'    => $licenciado,
             'garantia_fabrica'    => $garantia_fabrica,
-            'blindado'    => $blindado,
+            'blindado'            => $blindado,
+            'ar_condicionado'     => $ar_condicionado,
+            'teto_solar'          => $teto_solar,
+            'direcao_hidraulica'  => $direcao_hidraulica,
+            'trio_eletrico'       => $trio_eletrico,
+            'bancos_couro'        => $bancos_couro,
+            'insulfilm'           => $insulfilm,
+            'roda_liga'           => $roda_liga,
+            'piloto'              => $piloto,
+
+            'airbag'     => $airbag,
+            'freios_abs'          => $freios_abs,
+            'controle_tracao'  => $controle_tracao,
+            'quatro'       => $quatro,
+            'computador_bordo'        => $computador_bordo,
+            'bluetooth'           => $bluetooth,
+            'entrada_mp3'           => $entrada_mp3,
+            'gps'              => $gps,
+
+
             'new'           => $new,           
             'make'          => $make,
             'model'         => $model,

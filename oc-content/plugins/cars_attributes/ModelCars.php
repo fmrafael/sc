@@ -455,7 +455,8 @@
         private function toArrayInsert( $arrayInsert )
         {
             $array = array(
-                'i_year'            => $arrayInsert['year'],          
+                'i_year'            => $arrayInsert['year'],
+                'i_year_fabricado'  => $arrayInsert['year_fabricado'],             
                 'i_seats'           => $arrayInsert['seats'],   
                 'e_transmission'    => $arrayInsert['transmission'],
                 'e_fuel'            => $arrayInsert['fuel'],
@@ -468,8 +469,28 @@
                 
                 'b_blindado' => $arrayInsert['blindado'],
 
-               
-               
+                'b_ar_condicionado' => $arrayInsert['ar_condicionado'],
+                'b_teto_solar' => $arrayInsert['teto_solar'],
+                'b_direcao_hidraulica' => $arrayInsert['direcao_hidraulica'],
+                'b_trio_eletrico' => $arrayInsert['trio_eletrico'],
+                'b_bancos_couro' => $arrayInsert['bancos_couro'],
+                'b_insulfilm' => $arrayInsert['insulfilm'],
+                'b_roda_liga' => $arrayInsert['roda_liga'],
+                'b_piloto' => $arrayInsert['piloto'],
+
+                'b_airbag' => $arrayInsert['b_airbag'],
+                'b_freios_abs' => $arrayInsert['freioabs'],
+                'b_controle_tracao' => $arrayInsert['controle_tracao'],
+                'b_quatro' => $arrayInsert['quatro'],
+                'b_computador_bordo' => $arrayInsert['b_computador_bordo'],
+                'b_bluetooth' => $arrayInsert['b_bluetooth'],
+                'b_entrada_mp3' => $arrayInsert['b_entrada_mp3'],
+                'b_gps' => $arrayInsert['gps'],
+
+
+
+
+                   
                 'fk_i_make_id'      => $arrayInsert['make'],
                 'fk_i_model_id'     => $arrayInsert['model'],
                 'fk_vehicle_type_id'=> $arrayInsert['type']

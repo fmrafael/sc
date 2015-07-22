@@ -22,6 +22,11 @@ msgstr "Carregando"
 msgid "From"
 msgstr "De"
 
+#: oc-includes/osclass/frm/Item.form.class.php:1449
+msgid "Click or Drop for upload images"
+msgstr "Selecionar ou arrastar até 4 fotos"
+
+
 #: oc-includes/osclass/frm/Field.form.class.php:254
 #: oc-includes/osclass/helpers/hItems.php:1191
 msgid "to"

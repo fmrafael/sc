@@ -65,6 +65,7 @@
           <?php if($edit){ ?>
           <input type="hidden" name="id" value="<?php echo osc_item_id();?>" />
           <input type="hidden" name="secret" value="<?php echo osc_item_secret();?>" />
+
           <?php } ?>
           <h2>
             <?php _e('General Information', OSCLASSWIZARDS_THEME_FOLDER); ?>
@@ -80,8 +81,9 @@
 			<?php }else{ ?>
               <?php ItemForm::category_select(null, null, __('Select a category', OSCLASSWIZARDS_THEME_FOLDER)); ?>
 			<?php } ?>
-              <?php  } ?>
+            
             </div>
+              <?php  } ?>
           </div>
           <div class="form-group">
             <label class="control-label" for="title[<?php echo osc_current_user_locale(); ?>]">
@@ -92,7 +94,7 @@
             </div>
           </div>
 
-<?php if( osc_price_enabled_at_items() ) { ?>
+      <?php if( osc_price_enabled_at_items() ) { ?>
           <div class="form-group form-group-price">
             <label class="control-label" for="price">
               <?php _e('Price', OSCLASSWIZARDS_THEME_FOLDER); ?>
@@ -111,14 +113,11 @@
           </div>
           <?php } ?>
 
-          <div class="form-group">
-            <label class="control-label" for="description[<?php echo osc_current_user_locale(); ?>]">
-              <?php _e('Description', OSCLASSWIZARDS_THEME_FOLDER); ?>
-            </label>
-            <div class="controls">
-              <?php ItemForm::description_textarea('description',osc_current_user_locale(), osc_esc_html( osclasswizards_item_description() )); ?>
-            </div>
-          </div>
+          <?php 
+      if( osc_images_enabled_at_items() ) {
+                ItemForm::ajax_photos();
+            } ?>  
+
 
            <?php     if($edit) {
                             ItemForm::plugin_edit_item();
@@ -127,10 +126,7 @@
                         } ?>
 
           
-          <?php 
-			if( osc_images_enabled_at_items() ) {
-                ItemForm::ajax_photos();
-            } ?>
+    
           <div class="box location">
             <h2>
               <?php _e('Listing Location', OSCLASSWIZARDS_THEME_FOLDER); ?>

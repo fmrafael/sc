@@ -356,7 +356,7 @@ msgstr "Categorias"
 
 #: header.php:63 item-post.php:55
 msgid "Select a category"
-msgstr "Selecione uma Categoria"
+msgstr "Selecione"
 
 #: item-post.php:51
 msgid "General Information"
@@ -364,7 +364,7 @@ msgstr "Informação Geral"
 
 #: item-post.php:53
 msgid "Category"
-msgstr "Categoria"
+msgstr "Tipo de veículo"
 
 #: item-post.php:59 item.php:204
 msgid "Title"

@@ -25,6 +25,12 @@
         <td width="150px"><?php echo $detail['i_year']; ?></td>
     </tr>
     <?php } ?>
+    <?php if( !empty($detail['i_year_fabricado']) ) { ?>
+    <tr>
+        <td width="150px"><label><?php _e('Ano Fabricação', 'cars_attributes'); ?></label></td>
+        <td width="150px"><?php echo $detail['i_year_fabricado']; ?></td>
+    </tr>
+    <?php } ?>
     <?php if( !empty($detail['i_doors']) ) { ?>
     <tr>
         <td width="150px"><label><?php _e('Doors', 'cars_attributes'); ?></label></td>
