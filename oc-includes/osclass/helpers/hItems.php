@@ -241,6 +241,8 @@
         return (string) osc_item_field("dt_pub_date");
     }
 
+   
+
     /**
      * Gets modification date of current item
      *

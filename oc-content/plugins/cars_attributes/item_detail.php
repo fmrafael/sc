@@ -1,4 +1,6 @@
 <h2><?php _e('Car details', 'cars_attributes') ; ?></h2>
+<div class="row">
+    <div class="col-md-4">
 <table style="margin-left: 20px;">
     <?php if( !empty($detail['s_make']) ) { ?>
     <tr>
@@ -107,9 +109,19 @@
         <td width="150px"><?php echo @$detail['b_blindado'] ? '<strong>' . __('Yes', 'cars_attributes') . '</strong>' : __('No', 'cars_attributes'); ?></td>
     </tr>
 
-    <tr>
-        <td><label><?php _e('New', 'cars_attributes'); ?>: </label></td>
-        <td width="150px"><?php echo @$detail['b_new'] ? '<strong>' . __('Yes', 'cars_attributes') . '</strong>' : __('No', 'cars_attributes'); ?></td>
+
+
+</table>
+
+</div>
+
+<div class="col-md-4">
+    <table style="margin-left: 20px;">
+
+
+  <tr>
+        <td width="150px"><label><?php _e('Blindado', 'cars_attributes'); ?>: </label></td>
+        <td width="150px"><?php echo @$detail['b_blindado'] ? '<strong>' . __('Yes', 'cars_attributes') . '</strong>' : __('No', 'cars_attributes'); ?></td>
     </tr>
     <?php if( !empty($detail['i_power']) ) { ?>
     <tr>
@@ -124,3 +136,6 @@
     </tr>
     <?php } ?>
 </table>
+
+</div>
+</div>

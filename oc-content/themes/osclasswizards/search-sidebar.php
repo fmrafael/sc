@@ -45,12 +45,7 @@
               <input type="hidden" name="sUser[]" value="<?php echo $userId; ?>"/>
               <?php } ?>
               <fieldset class="first">
-                <h3>
-                  <?php _e('Your search', OSCLASSWIZARDS_THEME_FOLDER); ?>
-                </h3>
-                <div class="row">
-                  <input class="input-text" type="text" name="sPattern"  id="query" value="<?php echo osc_esc_html(osc_search_pattern()); ?>" />
-                </div>
+                
               </fieldset>
               <fieldset>
                 <h3>

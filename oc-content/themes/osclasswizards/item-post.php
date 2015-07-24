@@ -23,6 +23,7 @@
     osc_add_hook('header','osclasswizards_nofollow_construct');
 
     osc_enqueue_script('jquery-validate');
+    osc_enqueue_script('jquerypriceformat');
     osclasswizards_add_body_class('item item-post');
     $action = 'item_add_post';
     $edit = false;
@@ -61,10 +62,12 @@
       <form name="item" action="<?php echo osc_base_url(true);?>" method="post" enctype="multipart/form-data" id="item-post">
         <fieldset>
           <input type="hidden" name="action" value="<?php echo $action; ?>" />
+          <input type="hidden" name="sCategory[2]" value="<?php echo osc_esc_html("2"); ?>"/>
           <input type="hidden" name="page" value="item" />
           <?php if($edit){ ?>
           <input type="hidden" name="id" value="<?php echo osc_item_id();?>" />
           <input type="hidden" name="secret" value="<?php echo osc_item_secret();?>" />
+             
 
           <?php } ?>
           <h2>
@@ -85,14 +88,7 @@
             </div>
               <?php  } ?>
           </div>
-          <div class="form-group">
-            <label class="control-label" for="title[<?php echo osc_current_user_locale(); ?>]">
-              <?php _e('Title', OSCLASSWIZARDS_THEME_FOLDER); ?>
-            </label>
-            <div class="controls">
-              <?php ItemForm::title_input('title',osc_current_user_locale(), osc_esc_html( osclasswizards_item_title() )); ?>
-            </div>
-          </div>
+         
 
       <?php if( osc_price_enabled_at_items() ) { ?>
           <div class="form-group form-group-price">
@@ -231,6 +227,19 @@
             $('#price').bind('show-price', function(){
                 $('.form-group-price').show();
             });
+
+
+ 
+            $('#price').priceFormat({
+
+    prefix: '',
+    limit: 6,
+     centsLimit: 0,
+    thousandsSeparator: '.'
+
+            });
+
+
 
     <?php if(osc_locale_thousands_sep()!='' || osc_locale_dec_point() != '') { ?>
     $().ready(function(){

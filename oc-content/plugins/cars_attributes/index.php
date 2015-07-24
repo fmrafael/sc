@@ -149,6 +149,35 @@ Plugin update URI: cars-attributes
         }
     }
 
+function cars_makemodel() {
+        if( osc_is_this_category('cars_plugin', osc_item_category_id()) ) {
+            $detail   = ModelCars::newInstance()->getCarAttr(osc_item_id()) ;
+
+            if( count($detail) == 0 ) {
+                return ;
+            }
+
+            $make     = ModelCars::newInstance()->getCarMakeById( $detail['fk_i_make_id'] );
+            $model    = ModelCars::newInstance()->getCarModelById( $detail['fk_i_model_id'] );
+            $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_vehicle_type_id']);
+
+            $detail['s_make'] = '' ;
+            if( array_key_exists('s_name', $make) ) {
+                $detail['s_make']  = $make['s_name'];
+            }
+            $detail['s_model'] = '' ;
+            if( array_key_exists('s_name', $model) ) {
+                $detail['s_model']  = $model['s_name'];
+            }
+            $detail['locale']  = array() ;
+            foreach($car_type as $c) {
+                $detail['locale'][$c['fk_c_locale_code']]['s_car_type'] = $c['s_name'] ;
+            }
+
+            require_once 'item_makemodel.php' ;
+        }
+    }     
+
     // Self-explanatory
     function cars_item_edit($catID = null, $itemID = null) {
         if(osc_is_this_category('cars_plugin', $catID)) {

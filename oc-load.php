@@ -251,7 +251,7 @@ osc_register_script('fancybox', osc_assets_url('js/fancybox/jquery.fancybox.pack
 osc_register_script('jquery-migrate', osc_assets_url('js/jquery-migrate.min.js'), array('jquery'));
 osc_register_script('php-date', osc_assets_url('js/date.js'));
 osc_register_script('jquery-fineuploader', osc_assets_url('js/fineuploader/jquery.fineuploader.min.js'), 'jquery');
-
+osc_register_script('jquerypriceformat', osc_assets_url('js/jquery.price_format.2.0.min.js'));
 
 Plugins::init();
 osc_csrfguard_start();

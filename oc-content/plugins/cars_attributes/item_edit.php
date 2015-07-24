@@ -271,8 +271,8 @@
 </div>
 
 <?php
-            if( Session::newInstance()->_getForm('pc_direcao_hidraulicao') != '' ) {
-                $detail['b_direcao_hidraulica'] = Session::newInstance()->_getForm('pc_direcao_hidraulicao');
+            if( Session::newInstance()->_getForm('pc_direcao_hidraulica') != '' ) {
+                $detail['b_direcao_hidraulica'] = Session::newInstance()->_getForm('pc_direcao_hidraulica');
             }
         ?>
         <div class="checkbox">

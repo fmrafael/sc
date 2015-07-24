@@ -118,34 +118,51 @@
 			echo '</div>';
 		}
 ?>
+
+<?php 
+    $make  = Params::getParam('make') ;
+    $model = Params::getParam('model') ;
+    $type  = Params::getParam('type') ;
+
+    $makes  = ModelCars::newInstance()->getCarMakes();
+    $models = array();
+    if($make != '') {
+        $models = ModelCars::newInstance()->getCarModels($make);
+    }
+
+    $types = ModelCars::newInstance()->getVehiclesType(osc_current_user_locale());
+?>
+
   <div class="banner_none" id="form_vh_map">
     <form action="<?php echo osc_base_url(true); ?>" id="main_search" method="get" class="search nocsrf" >
       <div class="container">
+         <input type="hidden" name="sCategory[2]" value="<?php echo osc_esc_html("2"); ?>"/>
+              
         <input type="hidden" name="page" value="search"/>
         <div class="main-search">
           <div class="form-filters">
+
             <div class="row">
-              <div class="col-md-4">
-                <div class="cell">
-                  <input type="text" name="sPattern" id="query" class="input-text" value="" placeholder="<?php echo osc_esc_html(__(osc_get_preference('keyword_placeholder', 'osclasswizards_theme'), OSCLASSWIZARDS_THEME_FOLDER)); ?>" />
-                </div>
+              <div class="col-md-3  col-md-offset-2">
+               
+        <select name="make" id="make" >
+            <option value=""><?php  _e('Marca: Todas', 'cars_attributes'); ?></option>
+            <?php foreach($makes as $m) { ?>
+                <option value="<?php echo $m['pk_i_id']; ?>" <?php if($make == $m['pk_i_id']) { echo 'selected'; } ?>><?php echo $m['s_name']; ?></option>
+            <?php } ?>
+        </select>
               </div>
               <div class="col-md-3">
-                <?php  if ( osc_count_categories() ) { ?>
-                <div class="cell selector">
-                  <?php osc_categories_select('sCategory', null, __('Select a category', OSCLASSWIZARDS_THEME_FOLDER)) ; ?>
-                </div>
-                <?php  } ?>
+               
+<select name="model" id="model">
+            <option value=""><?php _e('Modelo: Todos', 'cars_attributes'); ?></option>
+            <?php foreach($models as $m) { ?>
+                <option value="<?php echo $m['pk_i_id']; ?>" <?php if($model == $m['pk_i_id']) { echo 'selected';} ?>><?php echo $m['s_name']; ?></option>
+            <?php } ?>
+        </select>
+
               </div>
-              <div class="col-md-3">
-                <div class="cell selector">
-                  <?php if(osclasswizards_search_select() == 'region'){?>
-                  <?php osclasswizards_regions_select('sRegion', 'sRegion', __('Select a region', OSCLASSWIZARDS_THEME_FOLDER)) ; ?>
-                  <?php }else{?>
-                  <?php osclasswizards_cities_select('sCity', null, __('Select a city', OSCLASSWIZARDS_THEME_FOLDER)) ; ?>
-                  <?php } ?>
-                </div>
-              </div>
+              
               <div class="col-md-2">
                 <div class="cell reset-padding">
                   <button  class="btn btn-success btn_search">
@@ -154,8 +171,18 @@
                 </div>
               </div>
             </div>
+<br>
+<div class="row">
+  <div class="col-md-3  col-md-offset-2">                     
+          <input class="input-text" placeholder="<?php _e('Preço de: Mín'); ?>" type="text" id="priceMin" name="sPriceMin" value="<?php echo osc_esc_html(osc_search_price_min()); ?>" size="6" maxlength="6" />
+                    </div>
+                    <div class="col-md-3">                  
+                      <input class="input-text" placeholder="<?php _e('Preço até: Max'); ?>" type="text" id="priceMax" name="sPriceMax" value="<?php echo osc_esc_html(osc_search_price_max()); ?>" size="6" maxlength="6" />
+                 </div>
+</div>
+
           </div>
-          <div id="message-seach"></div>
+          <div id="message-search"></div>
         </div>
       </div>
     </form>
@@ -189,3 +216,36 @@
 <div class="ads_header ads-headers"> <?php echo osc_get_preference('header-728x90', 'osclasswizards_theme'); ?> </div>
 <?php } ?>
 <div id="main">
+
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $("#make").change(function(){
+            var make_id = $(this).val();
+            var url = '<?php echo osc_ajax_plugin_url("cars_attributes/ajax.php") . "&makeId="; ?>' + make_id;
+            var result = '';
+            if(make_id != '') {
+                $("#model").attr('disabled',false);
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    dataType: 'json',
+                    success: function(data){
+                        var length = data.length;
+                        if(length > 0) {
+                            result += '<option value=""><?php _e("Select a model", 'cars_attributes'); ?></option>';
+                            for(key in data) {
+                                result += '<option value="' + data[key].pk_i_id + '">' + data[key].s_name + '</option>';
+                            }
+                        } else {
+                            result += '<option value=""><?php _e('No results', 'cars_attributes'); ?></option>';
+                        }
+                        $("#model").html(result);
+                    }
+                 });
+             } else {
+                $("#model").attr('disabled',true);
+             }
+        });
+    });
+</script>

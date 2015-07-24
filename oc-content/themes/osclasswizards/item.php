@@ -75,18 +75,15 @@
         </a> </strong> </p>
       <?php } ?>
 
-      <h1 class="title title_code"> <strong><?php echo osc_item_title(); ?></strong> </h1>
+      <h1 class="title title_code"> <strong><?php echo cars_makemodel(); ?></strong> </h1>
       <ul class="item-header">
         <li>
           <?php if( osc_price_enabled_at_items() ) { ?>
-          <i class="fa fa-money"></i><?php echo osc_item_formated_price(); ?>
+          <i class="fa fa-money"></i>R$ <?php echo osc_item_formated_price(); ?>
           <?php } ?>
         </li>
         <li>
           <?php if ( osc_item_pub_date() !== '' ) { printf( __('<i class="fa fa-calendar-o"></i> Published date: %1$s', OSCLASSWIZARDS_THEME_FOLDER), osc_format_date( osc_item_pub_date() ) ); } ?>
-        </li>
-        <li>
-          <?php if ( osc_item_mod_date() !== '' ) { printf( __('<span class="update"><i class="fa fa-calendar"></i> Modified date:</span> %1$s', OSCLASSWIZARDS_THEME_FOLDER), osc_format_date( osc_item_mod_date() ) ); } ?>
         </li>
         <?php if (count($location)>0) { ?>
         <li>
@@ -320,16 +317,7 @@
     </div>
   </div>
 </div>
-<?php related_listings(); ?>
-<?php if( osc_count_items() > 0 ) { ?>
-<div class="similar_ads">
-  <h2 class="title">
-    <?php _e('Related listings', OSCLASSWIZARDS_THEME_FOLDER); ?>
-  </h2>
-  <?php
-		View::newInstance()->_exportVariableToView("listType", 'items');
-		osc_current_web_theme_path($loop_template);
-    ?>
-</div>
-<?php } ?>
+
+
 <?php osc_current_web_theme_path('footer.php') ; ?>
+
