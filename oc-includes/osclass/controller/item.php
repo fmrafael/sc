@@ -169,7 +169,7 @@
 
                         $category = Category::newInstance()->findByPrimaryKey(Params::getParam('catId'));
                         View::newInstance()->_exportVariableToView('category', $category);
-                        $this->redirectTo(osc_search_category_url());
+                        $this->redirectTo(osc_item_url());
                     }
                 break;
                 case 'item_edit':   // edit item

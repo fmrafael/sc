@@ -125,7 +125,7 @@ msgstr "Apenas aos usuários registrados é permitido inserir anúncios"
 
 #: oc-includes/osclass/controller/item.php:165
 msgid "Your listing has been published"
-msgstr "Seu anúncio foi publicado"
+msgstr "Seu anúncio foi publicado. Agende a inspeção veicular SafeCarros Certifica e dê mais destaque ao seu anúncio"
 
 #: oc-includes/osclass/controller/item.php:239
 msgid "Great! We've just updated your listing"

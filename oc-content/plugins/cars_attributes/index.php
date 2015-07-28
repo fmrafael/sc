@@ -178,6 +178,36 @@ function cars_makemodel() {
         }
     }     
 
+    function cars_makemodel2() {
+        if( osc_is_this_category('cars_plugin', osc_item_category_id()) ) {
+            $detail   = ModelCars::newInstance()->getCarAttr(osc_item_id()) ;
+
+            if( count($detail) == 0 ) {
+                return ;
+            }
+
+            $make     = ModelCars::newInstance()->getCarMakeById( $detail['fk_i_make_id'] );
+            $model    = ModelCars::newInstance()->getCarModelById( $detail['fk_i_model_id'] );
+            $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_vehicle_type_id']);
+
+            $detail['s_make'] = '' ;
+            if( array_key_exists('s_name', $make) ) {
+                $detail['s_make']  = $make['s_name'];
+            }
+            $detail['s_model'] = '' ;
+            if( array_key_exists('s_name', $model) ) {
+                $detail['s_model']  = $model['s_name'];
+            }
+            $detail['locale']  = array() ;
+            foreach($car_type as $c) {
+                $detail['locale'][$c['fk_c_locale_code']]['s_car_type'] = $c['s_name'] ;
+            }
+
+            require_once 'item_makemodel2.php' ;
+        }
+    }     
+
+
     // Self-explanatory
     function cars_item_edit($catID = null, $itemID = null) {
         if(osc_is_this_category('cars_plugin', $catID)) {
@@ -249,7 +279,7 @@ function cars_makemodel() {
         $new      = (Params::getParam("new") != '') ? 1 : 0 ;
         $ipva = (Params::getParam("ipva") != '') ? 1 : 0 ;
         $licenciado = (Params::getParam("licenciado") != '') ? 1 : 0 ;
-        $garantia_fabrica = (Params::getParam("garantia_fabrica") != '') ? 1 : 0 ;
+        $adaptado = (Params::getParam("adaptado") != '') ? 1 : 0 ;
         
         $blindado = (Params::getParam("blindado") != '') ? 1 : 0 ;
 
@@ -287,12 +317,12 @@ function cars_makemodel() {
        
         Session::newInstance()->_setForm('pc_transmission', Params::getParam("transmission"));
         Session::newInstance()->_setForm('pc_fuel', Params::getParam("fuel"));
-        Session::newInstance()->_setForm('pc_seller', Params::getParam("seller"));
+        Session::newInstance()->_setForm('pc_km', Params::getParam("km"));
         Session::newInstance()->_setForm('pc_warranty', $warranty);
         Session::newInstance()->_setForm('pc_ipva', $ipva);
         Session::newInstance()->_setForm('pc_new', $new);
         Session::newInstance()->_setForm('pc_licenciado', $licenciado);
-        Session::newInstance()->_setForm('pc_garantia_fabrica', $garantia_fabrica);
+        Session::newInstance()->_setForm('pc_adaptado', $adaptado);
         Session::newInstance()->_setForm('pc_blindado', $blindado);
 
         Session::newInstance()->_setForm('pc_ar_condicionado', $ar_condicionado);
@@ -330,12 +360,12 @@ function cars_makemodel() {
        
         Session::newInstance()->_keepForm('pc_transmission');
         Session::newInstance()->_keepForm('pc_fuel');
-        Session::newInstance()->_keepForm('pc_seller');
+        Session::newInstance()->_keepForm('pc_km');
         Session::newInstance()->_keepForm('pc_warranty');
         Session::newInstance()->_keepForm('pc_ipva');
         Session::newInstance()->_keepForm('pc_new');
         Session::newInstance()->_keepForm('pc_licenciado');
-        Session::newInstance()->_keepForm('pc_garantia_fabrica');
+        Session::newInstance()->_keepForm('pc_adaptado');
         Session::newInstance()->_keepForm('pc_blindado');
 
         Session::newInstance()->_keepForm('pc_ar_condicionado');
@@ -377,7 +407,7 @@ function cars_makemodel() {
         $warranty = (Params::getParam("warranty")!='') ? 1 : 0;
         $ipva = (Params::getParam("ipva")!='') ? 1 : 0;
         $licenciado = (Params::getParam("licenciado")!='') ? 1 : 0;
-        $garantia_fabrica = (Params::getParam("garantia_fabrica")!='') ? 1 : 0;
+        $adaptado = (Params::getParam("adaptado")!='') ? 1 : 0;
         $blindado = (Params::getParam("blindado")!='') ? 1 : 0;
 
         $ar_condicionado = (Params::getParam("ar_condicionado")!='') ? 1 : 0;
@@ -412,11 +442,11 @@ function cars_makemodel() {
             'year_fabricado'   => $year_fabricado,
             'transmission'  => Params::getParam("transmission"),
             'fuel'          => Params::getParam("fuel"),
-            'seller'        => Params::getParam("seller"),
+            'km'        => Params::getParam("km"),
             'warranty'      => $warranty,
             'ipva'          => $ipva,
             'licenciado'    => $licenciado,
-            'garantia_fabrica'    => $garantia_fabrica,
+            'adaptado'    => $adaptado,
             'blindado'            => $blindado,
             'ar_condicionado'     => $ar_condicionado,
             'teto_solar'          => $teto_solar,

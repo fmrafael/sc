@@ -81,11 +81,11 @@
         <td width="150px"><label><?php echo $fuel[$detail['e_fuel']]; ?></td>
     </tr>
     <?php } ?>
-    <?php if( !empty($detail['e_seller']) ) { ?>
+    <?php if( !empty($detail['e_km']) ) { ?>
     <tr>
-        <?php $seller = array('DEALER' => __('Dealer', 'cars_attributes'), 'OWNER' => __('Owner', 'cars_attributes')); ?>
-        <td width="150px"><label><?php _e('Seller', 'cars_attributes'); ?></label></td>
-        <td width="150px"><label><?php echo $seller[$detail['e_seller']]; ?></td>
+        <?php $km = array('DEALER' => __('Dealer', 'cars_attributes'), 'OWNER' => __('Owner', 'cars_attributes')); ?>
+        <td width="150px"><label><?php _e('km', 'cars_attributes'); ?></label></td>
+        <td width="150px"><label><?php echo $km[$detail['e_km']]; ?></td>
     </tr>
     <?php } ?>
     <tr>
@@ -102,7 +102,7 @@
     </tr>
 <tr>
         <td width="150px"><label><?php _e('Garantia de Fábrica', 'cars_attributes'); ?>: </label></td>
-        <td width="150px"><?php echo @$detail['b_garantia_fabrica'] ? '<strong>' . __('Yes', 'cars_attributes') . '</strong>' : __('No', 'cars_attributes'); ?></td>
+        <td width="150px"><?php echo @$detail['b_adaptado'] ? '<strong>' . __('Yes', 'cars_attributes') . '</strong>' : __('No', 'cars_attributes'); ?></td>
     </tr>
 <tr>
         <td width="150px"><label><?php _e('Blindado', 'cars_attributes'); ?>: </label></td>

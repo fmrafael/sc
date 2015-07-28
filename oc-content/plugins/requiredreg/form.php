@@ -3,13 +3,11 @@ to use drop-down menus for location -->
 
 <!--<?php UserForm::location_javascript(); ?>-->
 
-<label for="user_type"><?php _e('User type', 'modern') ; ?></label>
-<?php UserForm::is_company_select() ; ?>
-<br />
 
-<label for="phoneMobile"><?php _e('Cell phone', 'modern') ; ?></label>
+<label for="phoneMobile"><?php _e('Celular', 'modern') ; ?></label>
 <?php UserForm::mobile_text() ; ?>
 <br />
+
 
 <!--<label for="phoneLand"><?php _e('Phone', 'modern') ; ?></label>
 <?php UserForm::phone_land_text() ; ?>
@@ -35,6 +33,3 @@ to use drop-down menus for location -->
 <?php UserForm::address_text() ; ?>
 <br />-->
 
-<label for="webSite"><?php _e('Website', 'modern') ; ?></label>
-<?php UserForm::website_text() ; ?>
-<br />

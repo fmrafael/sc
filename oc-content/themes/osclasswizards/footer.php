@@ -79,7 +79,7 @@
         <?php } ?>
       </ul>
       <?php
-            echo '<div class="copyright">' . sprintf(__('Todos os Direitos Reservados <a target="_blank" title="osclasswizards" href="%s">AppCarros. Mais segurança para comprar e vender veículos. </a>',OSCLASSWIZARDS_THEME_FOLDER), 'http://www.osclasswizards.com/') . '</div>';
+            echo '<div class="copyright">' . sprintf(__('Todos os Direitos Reservados <a target="_blank" title="osclasswizards" href="%s">SafeCarros. Mais segurança para comprar e vender veículos. </a>',OSCLASSWIZARDS_THEME_FOLDER), 'http://www.osclasswizards.com/') . '</div>';
         ?>
     </div>
   </div>

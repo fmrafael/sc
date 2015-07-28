@@ -67,13 +67,13 @@
 <div class="row">
   <div class="col-sm-4 col-md-3">
     <div class="user-card">
-      <figure><img class="img-responsive" src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( osc_user_email() ) ) ); ?>?s=400&d=<?php echo osc_current_web_theme_url('images/default.gif') ; ?>" /></figure>
+     
       <ul id="user_data">
         <li class="name">
           <h3><i class="fa fa-user"></i> <?php echo osc_user_name(); ?></h3>
         </li>
         <?php if( osc_user_website() !== '' ) { ?>
-        <li class="website"><i class="fa fa-link"></i> <strong><a target="_blank" href="<?php echo osc_user_website(); ?>"><?php echo osc_user_website(); ?></a></strong></li>
+        <li></li>
         <?php } ?>
         <?php if( $address !== '' ) { ?>
         <li class="adress"> <i class="fa fa-map-marker"></i> <?php printf(__('<strong>Address:</strong> %1$s'), $address); ?></li>

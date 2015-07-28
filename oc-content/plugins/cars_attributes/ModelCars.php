@@ -460,12 +460,12 @@
                 'i_seats'           => $arrayInsert['seats'],   
                 'e_transmission'    => $arrayInsert['transmission'],
                 'e_fuel'            => $arrayInsert['fuel'],
-                'e_seller'          => $arrayInsert['seller'],
+                'e_km'          => $arrayInsert['km'],
                 'b_warranty'        => $arrayInsert['warranty'],
                 'b_new'             => $arrayInsert['new'],
                 'b_ipva'            => $arrayInsert['ipva'],
                 'b_licenciado'      => $arrayInsert['licenciado'],
-                'b_garantia_fabrica' => $arrayInsert['garantia_fabrica'],
+                'b_adaptado' => $arrayInsert['adaptado'],
                 
                 'b_blindado' => $arrayInsert['blindado'],
 

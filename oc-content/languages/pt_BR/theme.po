@@ -560,15 +560,14 @@ msgstr "Informações úteis"
 #: item.php:125
 msgid "Avoid scams by acting locally or paying with PayPal"
 msgstr ""
-"Compre e Venda com segurança. Solicite a Inspeção Mecânica AppSafeCarros "
-"para seu veículo. São mais de 150 itens de vistoria. "
+"Compre e Venda com segurança. Solicite a Inspeção Mecânica SafeCarros do seu veículo ou peça ao vendedor a realização "
+"São mais de 150 itens de vistoria. "
 
 #: item.php:126
 msgid ""
 "Never pay with Western Union, Moneygram or other anonymous payment services"
 msgstr ""
-"Após a inspeção, feche a compra e solicite nossa expertise para transferir a "
-"documentação."
+"Após a inspeção, feche a compra e solicite SafeCarros Documentação para que a transferência de documentação seja rápida e segura."
 
 #: item.php:127
 msgid ""
@@ -584,9 +583,7 @@ msgid ""
 "payments, shipping, guarantee transactions, provide escrow services, or "
 "offer \"buyer protection\" or \"seller certification\""
 msgstr ""
-"Este site nunca está envolvida em qualquer transação,nem nos pagamentos, "
-"envios, garantias de transações, serviços de custódia, ou oferece \"proteção "
-"ao comprador \" ou \"vendedor de certificação \""
+"Com a Inspeção Mecânica SafeCarros, seu veículo têm anúncio destacado e a compra e venda é segura. Com SafeCarros Documentação, a transferência de posse ocorre sem stress."
 
 #: item.php:135
 msgid "Related listings"

@@ -66,14 +66,14 @@
             <span class="ribbon"> <i class="fa fa-star"></i> </span> </figure>
         </div>
         <div class="listing-attr">
-          <h4><a href="<?php echo osc_premium_url() ; ?>" title="<?php echo osc_esc_html(osc_premium_title()) ; ?>"><?php echo osc_premium_title() ; ?></a></h4>
-          <article> <span class="category"><i class="fa fa-<?php echo osclasswizards_category_icon( osc_premium_category_id() ); ?>"></i><?php echo osc_premium_category() ; ?></span> <span class="location"><i class="fa fa-map-marker"></i><?php echo osc_premium_city(); ?>
+          <h4><a href="<?php echo osc_premium_url() ; ?>" title="<?php echo osc_esc_html(osc_premium_title()) ; ?>"><?php echo cars_makemodel() ; ?></a></h4>
+          <article> <span class="category"><i class="fa fa-<?php echo osclasswizards_category_icon( osc_premium_category_id() ); ?>"></i></span> <span class="location"><i class="fa fa-map-marker"></i><?php echo osc_premium_city(); ?>
             <?php if(osc_premium_region()!='') { ?>
             (<?php echo osc_premium_region(); ?>)
             <?php } ?>
             </span> <span class="date"> <i class="fa fa-clock-o"></i> <?php echo osc_format_date(osc_premium_pub_date()); ?> </span> </article>
           <?php if( osc_price_enabled_at_items() ) { ?>
-          <span class="currency-value"><?php echo osc_format_price(osc_premium_price(), osc_premium_currency_symbol()); ?></span>
+          <span class="currency-value">R$ <?php echo osc_format_price(osc_premium_price(), osc_premium_currency_symbol()); ?></span>
           <?php } ?>
           <?php $admin = false; ?>
           <?php if($admin){ ?>

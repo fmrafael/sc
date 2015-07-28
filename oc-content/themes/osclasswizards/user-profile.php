@@ -60,12 +60,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" for="user_type">
-            <?php _e('User type', OSCLASSWIZARDS_THEME_FOLDER); ?>
-          </label>
-          <div class="controls">
-            <?php UserForm::is_company_select(osc_user()); ?>
-          </div>
+         
         </div>
         <div class="form-group">
           <label class="control-label" for="phoneMobile">
@@ -76,12 +71,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" for="phoneLand">
-            <?php _e('Phone', OSCLASSWIZARDS_THEME_FOLDER); ?>
-          </label>
-          <div class="controls">
-            <?php UserForm::phone_land_text(osc_user()); ?>
-          </div>
+         
         </div>
         <div class="form-group">
           <label class="control-label" for="country">
@@ -124,20 +114,10 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" for="webSite">
-            <?php _e('Website', OSCLASSWIZARDS_THEME_FOLDER); ?>
-          </label>
-          <div class="controls">
-            <?php UserForm::website_text(osc_user()); ?>
-          </div>
+         
         </div>
         <div class="form-group">
-          <label class="control-label" for="s_info">
-            <?php _e('Description', OSCLASSWIZARDS_THEME_FOLDER); ?>
-          </label>
-          <div class="controls">
-            <?php UserForm::info_textarea('s_info', osc_locale_code(), @$osc_user['locale'][osc_locale_code()]['s_info']); ?>
-          </div>
+         
         </div>
         <?php osc_run_hook('user_profile_form', osc_user()); ?>
         <div class="form-group">

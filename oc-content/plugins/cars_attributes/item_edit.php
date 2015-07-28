@@ -179,14 +179,16 @@
     </div>
     <div class="col-sm-4">
         <?php
-            if( Session::newInstance()->_getForm('pc_seller') != '' ) {
-                $detail['e_seller'] = Session::newInstance()->_getForm('pc_seller');
+            if( Session::newInstance()->_getForm('pc_km') != '' ) {
+                $detail['e_km'] = Session::newInstance()->_getForm('pc_km');
             }
         ?>
-        <label><?php _e('Seller', 'cars_attributes'); ?></label>
-        <select name="seller" id="seller">
-            <option value="DEALER" <?php if(@$detail['e_seller'] == 'DEALER') { echo 'selected'; } ?>><?php _e('Dealer', 'cars_attributes'); ?></option>
-            <option value="OWNER" <?php if(@$detail['e_seller'] == 'OWNER') { echo 'selected'; } ?>><?php _e('Owner', 'cars_attributes'); ?></option>
+        <label><?php _e('Quilometragem', 'cars_attributes'); ?></label>
+        <select name="km" id="km">           
+            <?php foreach(range(0, 250000, 5000) as $n) { ?>
+            <object></object>ption value="<?php echo $n; ?>" <?php if(@$detail['e_km'] == $n) { echo 'selected'; } ?>><?php echo $n; ?></option>
+            <?php } ?>
+        </select>
         </select>
     </div>
 </div>
@@ -223,12 +225,12 @@
         <input type="checkbox" name="licenciado" id="licenciado" value="1" <?php if(@$detail['b_licenciado'] == 1) { echo 'checked="yes"'; } ?> /> <label><?php _e('Licenciado', 'cars_attributes'); ?></label>
 </div>
        <?php
-            if( Session::newInstance()->_getForm('pc_garantia_fabrica') != '' ) {
-                $detail['b_garantia_fabrica'] = Session::newInstance()->_getForm('pc_garantia_fabrica');
+            if( Session::newInstance()->_getForm('pc_adaptado') != '' ) {
+                $detail['b_adaptado'] = Session::newInstance()->_getForm('pc_adaptado');
             }
         ?>
         <div class="checkbox">
-        <input type="checkbox" name="garantia_fabrica" id="garantia_fabrica" value="1" <?php if(@$detail['b_garantia_fabrica'] == 1) { echo 'checked="yes"'; } ?> /> <label><?php _e('Adaptado Deficiente', 'cars_attributes'); ?></label>
+        <input type="checkbox" name="adaptado" id="adaptado" value="1" <?php if(@$detail['b_adaptado'] == 1) { echo 'checked="yes"'; } ?> /> <label><?php _e('Adaptado Deficiente', 'cars_attributes'); ?></label>
 </div>
         <?php
             if( Session::newInstance()->_getForm('pc_blindado') != '' ) {
@@ -244,7 +246,7 @@
             }
         ?>
         <div class="checkbox">
-        <input type="checkbox" name="new" id="new" value="1" <?php if(@$detail['b_new'] == 1) { echo 'checked="yes"'; } ?> /> <label><?php _e('Único Dono', 'cars_attributes'); ?></label>
+        <input type="checkbox" name="new" id="new" value="1" <?php if(@$detail['b_new'] == 1) { echo 'checked="yes"'; } ?> /> <label><?php _e('Revendedor', 'cars_attributes'); ?></label>
         </div>
 
         </div>
