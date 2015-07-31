@@ -77,7 +77,7 @@ Plugin update URI: cars-attributes
             $data  = ModelCars::newInstance()->getVehiclesType();
             $car_types = array();
             foreach($data as $d) {
-                $car_types[$d['fk_c_locale_code']][$d['pk_i_id']] = $d['s_name'];
+                $car_types[$d['fk_vehicle_type_id']][$d['pk_i_id']] = $d['s_name'];
             }
             unset($data);
             $models = array();
@@ -140,9 +140,9 @@ Plugin update URI: cars-attributes
             if( array_key_exists('s_name', $model) ) {
                 $detail['s_model']  = $model['s_name'];
             }
-            $detail['locale']  = array() ;
-            foreach($car_type as $c) {
-                $detail['locale'][$c['fk_c_locale_code']]['s_car_type'] = $c['s_name'] ;
+            $detail['s_car_type'] = '' ;
+            if( array_key_exists('s_name', $car_type) ) {
+                $detail['s_car_type']  = $car_type['s_name'];
             }
 
             require_once 'item_detail.php' ;
@@ -169,9 +169,9 @@ function cars_makemodel() {
             if( array_key_exists('s_name', $model) ) {
                 $detail['s_model']  = $model['s_name'];
             }
-            $detail['locale']  = array() ;
-            foreach($car_type as $c) {
-                $detail['locale'][$c['fk_c_locale_code']]['s_car_type'] = $c['s_name'] ;
+            $detail['s_car_type'] = '' ;
+            if( array_key_exists('s_name', $car_type) ) {
+                $detail['s_car_type']  = $car_type['s_name'];
             }
 
             require_once 'item_makemodel.php' ;
@@ -198,9 +198,9 @@ function cars_makemodel() {
             if( array_key_exists('s_name', $model) ) {
                 $detail['s_model']  = $model['s_name'];
             }
-            $detail['locale']  = array() ;
-            foreach($car_type as $c) {
-                $detail['locale'][$c['fk_c_locale_code']]['s_car_type'] = $c['s_name'] ;
+            $detail['s_car_type'] = '' ;
+            if( array_key_exists('s_name', $car_type) ) {
+                $detail['s_car_type']  = $car_type['s_name'];
             }
 
             require_once 'item_makemodel2.php' ;
@@ -217,13 +217,11 @@ function cars_makemodel() {
             if( array_key_exists('fk_i_make_id', $detail) ) {
                 $models = ModelCars::newInstance()->getCarModels( $detail['fk_i_make_id'] );
             }
-            $data   = ModelCars::newInstance()->getVehiclesType();
-            
-            $car_types = array();
-            foreach($data as $d) {
-                $car_types[$d['fk_c_locale_code']][$d['pk_i_id']] = $d['s_name'];
+            $car_type = array() ;
+            if( array_key_exists('fk_i_make_id', $detail) ) {
+                $car_type = ModelCars::newInstance()->getVehiclesType( $detail['fk_i_make_id'] );
             }
-            unset($data);
+
             require_once 'item_edit.php';
         }
     }
@@ -302,6 +300,7 @@ function cars_makemodel() {
         $bluetooth = (Params::getParam("bluetooth") != '') ? 1 : 0 ;
         $entrada_mp3 = (Params::getParam("entrada_mp3") != '') ? 1 : 0 ;
         $gps = (Params::getParam("gps") != '') ? 1 : 0 ;
+        $inspecao = (Params::getParam("inspecao") != '') ? 1 : 0 ;
 
 
 
@@ -341,7 +340,8 @@ function cars_makemodel() {
         Session::newInstance()->_setForm('pc_computador_bordo', $bancos_couro);
         Session::newInstance()->_setForm('pc_bluetooth', $insulfilm);
         Session::newInstance()->_setForm('pc_entrada_mp3', $roda_liga);
-        Session::newInstance()->_setForm('pc_gps', $piloto);
+        Session::newInstance()->_setForm('pc_gps', $gps);
+        Session::newInstance()->_setForm('pc_inspecao', $inspecao);
 
 
 
@@ -386,6 +386,7 @@ function cars_makemodel() {
         Session::newInstance()->_keepForm('pc_bluetooth');
         Session::newInstance()->_keepForm('pc_entrada_mp3');
         Session::newInstance()->_keepForm('pc_gps');
+        Session::newInstance()->_keepForm('pc_inspecao');
 
 
 
@@ -398,7 +399,7 @@ function cars_makemodel() {
     function _getCarParameters() {
         $make     = (Params::getParam("make") == '') ? null : Params::getParam("make");
         $model    = (Params::getParam("model") == '') ? null : Params::getParam("model");
-        $type     = (Params::getParam("car_type") == '') ? 1 : Params::getParam("car_type");
+        $type     = (Params::getParam("car_type") == '') ? null : Params::getParam("car_type");
        
        
        
@@ -428,6 +429,7 @@ function cars_makemodel() {
         $bluetooth = (Params::getParam("bluetooth")!='') ? 1 : 0;
         $entrada_mp3 = (Params::getParam("entrada_mp3")!='') ? 1 : 0;
         $gps = (Params::getParam("gps")!='') ? 1 : 0;
+        $inspecao = (Params::getParam("inspecao")!='') ? 1 : 0;
 
 
 
@@ -465,6 +467,7 @@ function cars_makemodel() {
             'bluetooth'           => $bluetooth,
             'entrada_mp3'           => $entrada_mp3,
             'gps'              => $gps,
+            'inspecao'              => $inspecao,
 
 
             'new'           => $new,           

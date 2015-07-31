@@ -21,9 +21,9 @@
 ?>
 <script type="text/javascript">
 $(document).ready(function(){
-	
-	$('input[name=alert_email]').val('<?php _e('Enter your email address.', OSCLASSWIZARDS_THEME_FOLDER); ?>');
-	
+    
+    $('input[name=alert_email]').val('<?php _e('Enter your email address.', OSCLASSWIZARDS_THEME_FOLDER); ?>');
+    
     $(".sub_button").click(function(){
         $.post('<?php echo osc_base_url(true); ?>', {email:$("#alert_email").val(), userid:$("#alert_userId").val(), alert:$("#alert").val(), page:"ajax", action:"alerts"},
             function(data){
@@ -34,9 +34,8 @@ $(document).ready(function(){
         });
         return false;
     });
-	
+    
     var sQuery = '<?php _e('Enter your email address.', OSCLASSWIZARDS_THEME_FOLDER); ?>';
-
     if($('input[name=alert_email]').val() == sQuery) {
         $('input[name=alert_email]').css('color', 'gray');
     }
@@ -79,6 +78,6 @@ $(document).ready(function(){
             <?php } ?></p>
             
             <button type="submit" class="btn btn-success sub_button">
-			<?php _e('Subscribe now', OSCLASSWIZARDS_THEME_FOLDER); ?>!</button>
+            <?php _e('Agende Já', OSCLASSWIZARDS_THEME_FOLDER); ?>!</button>
     </form>
 </div>

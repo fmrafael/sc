@@ -120,7 +120,7 @@
             $i = 0;
             osc_get_premiums(osclasswizards_premium_listings_shown());
             if(osc_count_premiums() > 0) {
-            echo '<h5 class="title">'.__('Premium listings',OSCLASSWIZARDS_THEME_FOLDER).'</h5>';
+            echo '<h5 class="title">'.__('Carros Inspecionados - SafeCarros Certifica',OSCLASSWIZARDS_THEME_FOLDER).'</h5>';
 			?>
     <?php 
 			

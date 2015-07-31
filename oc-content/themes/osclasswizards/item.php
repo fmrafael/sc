@@ -264,34 +264,7 @@
 			}
 		?>
     <div class="alert_block">
-      <?php if(!osc_is_web_user_logged_in() || osc_logged_user_id()!=osc_item_user_id()) { ?>
-      <form action="<?php echo osc_base_url(true); ?>" method="post" name="mask_as_form" id="mask_as_form">
-        <input type="hidden" name="id" value="<?php echo osc_item_id(); ?>" />
-        <input type="hidden" name="as" value="spam" />
-        <input type="hidden" name="action" value="mark" />
-        <input type="hidden" name="page" value="item" />
-        <select name="as" id="as" class="mark_as">
-          <option>
-          <?php _e("Mark as...", OSCLASSWIZARDS_THEME_FOLDER); ?>
-          </option>
-          <option value="spam">
-          <?php _e("Mark as spam", OSCLASSWIZARDS_THEME_FOLDER); ?>
-          </option>
-          <option value="badcat">
-          <?php _e("Mark as misclassified", OSCLASSWIZARDS_THEME_FOLDER); ?>
-          </option>
-          <option value="repeated">
-          <?php _e("Mark as duplicated", OSCLASSWIZARDS_THEME_FOLDER); ?>
-          </option>
-          <option value="expired">
-          <?php _e("Mark as expired", OSCLASSWIZARDS_THEME_FOLDER); ?>
-          </option>
-          <option value="offensive">
-          <?php _e("Mark as offensive", OSCLASSWIZARDS_THEME_FOLDER); ?>
-          </option>
-        </select>
-      </form>
-      <?php } ?>
+      
     </div>
     <?php osc_current_web_theme_path('item-sidebar.php'); ?>
     <div class="block_list">

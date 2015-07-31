@@ -13,6 +13,10 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: \n"
 
+#: alert-form.php:25 alert-form.php:38
+msgid "Enter your email address."
+msgstr "Insira seu email. Agende sua inspeção"
+
 #: 404.php:8
 msgid "Sorry but I can't find the page you're looking for"
 msgstr "A página que você está procurando não pode ser encontrada"
@@ -168,7 +172,7 @@ msgstr "Houve um problema com o alerta"
 
 #: alert-form.php:60
 msgid "Subscribe to this search"
-msgstr "Inscrever-se para esta pesquisa"
+msgstr "Quer uma compra segura? Agende uma inspeção mecânica Safecarros."
 
 #: alert-form.php:75
 msgid "Subscribe now"

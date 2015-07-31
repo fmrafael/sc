@@ -163,13 +163,7 @@
 
               </div>
               
-              <div class="col-md-2">
-                <div class="cell reset-padding">
-                  <button  class="btn btn-success btn_search">
-                  <?php _e("Search", OSCLASSWIZARDS_THEME_FOLDER);?>
-                  </button>
-                </div>
-              </div>
+              
             </div>
 <br>
 <div class="row">
@@ -179,6 +173,14 @@
                     <div class="col-md-3">                  
                       <input class="input-text" placeholder="<?php _e('Preço até: Max'); ?>" type="text" id="priceMax" name="sPriceMax" value="<?php echo osc_esc_html(osc_search_price_max()); ?>" size="6" maxlength="6" />
                  </div>
+
+                 <div class="col-md-2">
+                <div class="cell reset-padding">
+                  <button  class="btn btn-success btn_search">
+                  <?php _e("Search", OSCLASSWIZARDS_THEME_FOLDER);?>
+                  </button>
+                </div>
+              </div>
 </div>
 
           </div>

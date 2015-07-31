@@ -48,7 +48,7 @@
     <?php } else { ?>
     <?php if( osc_item_user_id() != null ) { ?>
     <div class="user-card">
-      <figure><img class="img-responsive" src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( osc_user_email() ) ) ); ?>?s=400&d=<?php echo osc_current_web_theme_url('images/default.gif') ; ?>" /></figure>
+      
     </div>
     <h3 class="name">
 	  <i class="fa fa-user"></i>

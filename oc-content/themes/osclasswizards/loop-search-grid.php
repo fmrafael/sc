@@ -55,8 +55,8 @@ echo '<ul class="row">';
       <span class="ribbon"> <i class="fa fa-star"></i> </span> </figure>
   </div>
   <div class="listing-attr">
-    <h4><a href="<?php echo osc_item_url() ; ?>" title="<?php echo osc_esc_html(osc_item_title()) ; ?>"><?php echo osc_highlight(strip_tags(osc_item_title()),40) ; ?></a></h4>
-    <article> <span class="category"><i class="fa fa-<?php echo osclasswizards_category_icon( osc_item_category_id() ); ?>"></i> <?php echo osc_item_category() ; ?></span> <span class="location"><i class="fa fa-map-marker"></i><?php echo osc_item_city(); ?>
+    <h4><a href="<?php echo osc_item_url() ; ?>" title="<?php echo osc_esc_html(osc_item_title()) ; ?>"><?php echo osc_highlight(strip_tags(cars_makemodel2()),40) ; ?></a></h4>
+    <article> <span class="category"><i class="fa fa-<?php echo osclasswizards_category_icon( osc_item_category_id() ); ?>"></i> </span> <span class="location"><i class="fa fa-map-marker"></i><?php echo osc_item_city(); ?>
       <?php if( osc_item_region()!='' ) { ?>
       (<?php echo osc_item_region(); ?>)
       <?php } ?>
@@ -171,14 +171,14 @@ echo'</ul>';
       <span class="ribbon"> <i class="fa fa-star"></i> </span> </figure>
   </div>
   <div class="listing-attr">
-    <h4><a href="<?php echo osc_item_url() ; ?>" title="<?php echo osc_esc_html(osc_item_title()) ; ?>"><?php echo osc_highlight(strip_tags(osc_item_title()),40) ; ?></a></h4>
-    <article> <span class="category"><i class="fa fa-<?php echo osclasswizards_category_icon( osc_item_category_id() ); ?>"></i> <?php echo osc_item_category() ; ?></span> <span class="location"><i class="fa fa-map-marker"></i><?php echo osc_item_city(); ?>
+    <h4><a href="<?php echo osc_item_url() ; ?>" title="<?php echo osc_esc_html(osc_item_title()) ; ?>"><?php echo osc_highlight(strip_tags(cars_makemodel2()),40) ; ?></a></h4>
+    <article> <span class="category"><i class="fa fa-<?php echo osclasswizards_category_icon( osc_item_category_id() ); ?>"></i> </span> <span class="location"><i class="fa fa-map-marker"></i><?php echo osc_item_city(); ?>
       <?php if( osc_item_region()!='' ) { ?>
       (<?php echo osc_item_region(); ?>)
       <?php } ?>
       </span> <span class="date"> <i class="fa fa-clock-o"></i> <?php echo osc_format_date(osc_item_pub_date()); ?> </span> </article>
     <?php if( osc_price_enabled_at_items() ) { ?>
-    <span class="currency-value"><?php echo osc_format_price(osc_item_price()); ?></span>
+    <span class="currency-value">R$ <?php echo osc_format_price(osc_item_price()); ?></span>
     <?php } ?>
     <?php if($admin){ ?>
     <span class="admin-options"> <a href="<?php echo osc_item_edit_url(); ?>" rel="nofollow">

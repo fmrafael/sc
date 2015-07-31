@@ -43,7 +43,8 @@
     $types = ModelCars::newInstance()->getVehiclesType(osc_current_user_locale());
 ?>
 <fieldset>
-    <h3><?php _e('Cars attributes', 'cars_attributes') ; ?></h3>
+   
+
     <div class="row one_input">
         <h6><?php _e('Make', 'cars_attributes'); ?></h6>
         <select name="make" id="make" >

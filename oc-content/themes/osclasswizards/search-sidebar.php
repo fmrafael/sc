@@ -47,33 +47,29 @@
               <fieldset class="first">
                 
               </fieldset>
-              <fieldset>
-                <h3>
-                  <?php _e('City', OSCLASSWIZARDS_THEME_FOLDER); ?>
-                </h3>
-                <div>
-                  <input class="input-text" type="text" id="sCity" name="sCity" value="<?php echo osc_esc_html(osc_search_city()); ?>" />
-                </div>
-              </fieldset>
-              <fieldset>
-                <h3>
-                  <?php _e('Region', OSCLASSWIZARDS_THEME_FOLDER); ?>
-                </h3>
-                <div>
-                  <input class="input-text" type="text" id="sRegion" name="sRegion" value="<?php echo osc_esc_html(osc_search_region()); ?>" />
-                </div>
-              </fieldset>
-              <?php if( osc_images_enabled_at_items() ) { ?>
+          
+    <?php if( osc_images_enabled_at_items() ) { ?>
               <fieldset>
                 <h3>
                   <?php _e('Show only', OSCLASSWIZARDS_THEME_FOLDER) ; ?>
+
+                  
                 </h3>
+                
+<div class="checkbox">
+                  <input type="checkbox" name="bPremium" id="premium" value="1" <?php echo (osc_search_only_premium() ? 'checked' : ''); ?> />
+                  <label for="bPremium">
+                    <?php _e('Veículos com SafeCarros Certifica (Inspecionados)', OSCLASSWIZARDS_THEME_FOLDER) ; ?>
+                  </label>
+                </div>
+
                 <div class="checkbox">
                   <input type="checkbox" name="bPic" id="withPicture" value="1" <?php echo (osc_search_has_pic() ? 'checked' : ''); ?> />
                   <label for="withPicture">
                     <?php _e('listings with pictures', OSCLASSWIZARDS_THEME_FOLDER) ; ?>
                   </label>
                 </div>
+                
               </fieldset>
               <?php } ?>
               <?php if( osc_price_enabled_at_items() ) { ?>
@@ -96,6 +92,8 @@
                   </ul>
                 </div>
               </fieldset>
+
+              
               <?php } ?>
               <div class="plugin-hooks">
                 <?php
@@ -106,11 +104,32 @@
             }
             ?>
               </div>
+
+
               <?php
         $aCategories = osc_search_category();
         foreach($aCategories as $cat_id) { ?>
               <input type="hidden" name="sCategory[]" value="<?php echo osc_esc_html($cat_id); ?>"/>
               <?php } ?>
+
+<fieldset>
+                <h3>
+                  <?php _e('City', OSCLASSWIZARDS_THEME_FOLDER); ?>
+                </h3>
+                <div>
+                  <input class="input-text" type="text" id="sCity" name="sCity" value="<?php echo osc_esc_html(osc_search_city()); ?>" />
+                </div>
+              </fieldset>
+              <fieldset>
+                <h3>
+                  <?php _e('Region', OSCLASSWIZARDS_THEME_FOLDER); ?>
+                </h3>
+                <div>
+                  <input class="input-text" type="text" id="sRegion" name="sRegion" value="<?php echo osc_esc_html(osc_search_region()); ?>" />
+                </div>
+              </fieldset>
+          
+              
               <div class="actions">
                 <button type="submit" class="btn btn-success">
                 <?php _e('Apply', OSCLASSWIZARDS_THEME_FOLDER) ; ?>
@@ -121,22 +140,17 @@
         </section>
       </div>
       <div class="block mobile_hide_cat">
-        <h2>
-          <?php _e('Refine category', OSCLASSWIZARDS_THEME_FOLDER) ; ?>
-        </h2>
-        <section>
-          <div class="search_filter">
-            <?php osclasswizards_sidebar_category_search($category['pk_i_id']); ?>
-          </div>
+       
         </section>
       </div>
     </div>
     <div class="block mobile_hide">
       <h2>
-        <?php _e('Subscribe to this search', OSCLASSWIZARDS_THEME_FOLDER) ; ?>
+        <?php _e("Compra segura? Só no SafeCarros. Mais de 150 itens mecânicos inspecionados.", OSCLASSWIZARDS_THEME_FOLDER) ; ?>
       </h2>
       <section>
         <?php osc_alert_form(); ?>
+        <?php _e("Em 45 minutos seu carro é inspecionado e você garante, além do Certificado de Inspeção da SafeCarros em mãos, destaque nos classificados.", OSCLASSWIZARDS_THEME_FOLDER) ; ?>
       </section>
     </div>
     <?php 

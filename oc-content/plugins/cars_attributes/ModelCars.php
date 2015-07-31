@@ -7,7 +7,7 @@
      *
      *       This program is free software: you can redistribute it and/or
      *     modify it under the terms of the GNU Affero General Public License
-     *     as published by the Free Software Foundation, either version 3 of
+     *     as published by the Free Software Foundation, either fvehic 3 of
      *            the License, or (at your option) any later version.
      *
      *     This program is distributed in the hope that it will be useful, but
@@ -95,7 +95,7 @@
          */
         public function getTable_CarVehicleType()
         {
-            return DB_TABLE_PREFIX.'t_item_car_vehicle_type_attr';
+            return DB_TABLE_PREFIX.'t_item_car_vehicle_type_attr2';
         }
         
         /**
@@ -230,13 +230,12 @@
          * @param string $locale
          * @return array
          */
-        public function getVehiclesType( $locale = null )
+        public function getVehiclesType( $modelId )
         {
             $this->dao->select() ;
             $this->dao->from( $this->getTable_CarVehicleType() ) ;
-            if(!is_null($locale) ){
-                $this->dao->where('fk_c_locale_code', $locale) ;
-            }
+             $this->dao->where('fk_i_model_id', $modelId) ;
+            $this->dao->orderBy('s_name', 'ASC') ;
             
             $results = $this->dao->get();
             if( !$results ) {
@@ -332,11 +331,11 @@
          * @param string $locale
          * @param string $name 
          */
-        public function insertVehicleType($typeId, $locale, $name)
+        public function insertVehicleType($modelId, $name)
         {
             $aSet = array(
-                'pk_i_id'           => $typeId,
-                'fk_c_locale_code'  => $locale,
+                
+                'fk_vehicle_type_id'      => $modelId,
                 's_name'            => $name
             );
             return $this->dao->insert($this->getTable_CarVehicleType(), $aSet) ;
@@ -383,17 +382,9 @@
          * @param string $locale
          * @param string $name 
          */
-        public function updateVehicleType($typeId, $locale, $name)
+        public function updateVehicleType($typeId, $makeId, $name)
         {
-            $aWhere = array(
-                'pk_i_id'           => $typeId, 
-                'fk_c_locale_code'  => $locale
-            );
-            $aSet = array(
-                's_name'            => $name
-            );
-            
-            return $this->_update($this->getTable_CarVehicleType(), $aSet, $aWhere);
+         return $this->_update($this->getTable_CarModel(), array('s_name' => $name), array('pk_i_id' => $typeId, 'fk_i_model_id' => $modelId));
         }
         
         /**
@@ -442,10 +433,10 @@
          * 
          * @param type $locale 
          */
-        public function deleteLocale( $locale )
-        {
-            return $this->dao->delete($this->getTable_CarVehicleType(), array('fk_c_locale_code' => $locale));
-        }
+        //public function deleteLocale( $locale )
+        //{
+         //   return $this->dao->delete($this->getTable_CarVehicleType(), array('fk_c_locale_code' => $locale));
+        //}
         
         /**
          * Return an array, associates field name in database with the value
@@ -486,6 +477,7 @@
                 'b_bluetooth' => $arrayInsert['b_bluetooth'],
                 'b_entrada_mp3' => $arrayInsert['b_entrada_mp3'],
                 'b_gps' => $arrayInsert['gps'],
+                'b_inspecao' => $arrayInsert['inspecao'],
 
 
 

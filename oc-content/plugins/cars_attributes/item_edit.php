@@ -74,8 +74,8 @@
                 <label><?php _e('Car type', 'cars_attributes'); ?></label>
                 <select name="car_type" id="car_type">
                     <option value="" selected><?php _e('Select a car type', 'cars_attributes'); ?></option>
-                    <?php foreach($car_types[$locale['pk_c_code']] as $k => $v) { ?>
-                    <option value="<?php echo  $k; ?>" <?php if(@$detail['fk_vehicle_type_id'] == $k) { echo 'selected'; } ?>><?php echo @$v; ?></option>
+                    <?php foreach($car_types as $k) { ?>
+                    <option value="<?php echo  $k['pk_i_id']; ?>" <?php if(@$detail['fk_vehicle_type_id'] == $k['pk_i_id']) { echo 'selected'; } ?>><?php echo @$k['s_name']; ?></option>
                     <?php } ?>
                 </select>
             </p>
@@ -88,9 +88,9 @@
                         <label><?php _e('Car type', 'cars_attributes'); ?></label>
                         <select name="car_type" id="car_type">
                             <option value="" selected><?php _e('Select a car type', 'cars_attributes'); ?></option>
-                            <?php foreach($car_types[$locale['pk_c_code']] as $k => $v) { ?>
-                            <option value="<?php echo  $k; ?>" <?php if(@$detail['fk_vehicle_type_id'] == $k) { echo 'selected'; } ?>><?php echo @$v; ?></option>
-                            <?php } ?>
+                            <?php foreach($car_types as $k) { ?>
+                    <option value="<?php echo  $k['pk_i_id']; ?>" <?php if(@$detail['fk_vehicle_type_id'] == $k['pk_i_id']) { echo 'selected'; } ?>><?php echo @$k['s_name']; ?></option>
+                    <?php } ?>
                         </select>
                     </p>
                 </div>
@@ -186,7 +186,7 @@
         <label><?php _e('Quilometragem', 'cars_attributes'); ?></label>
         <select name="km" id="km">           
             <?php foreach(range(0, 250000, 5000) as $n) { ?>
-            <object></object>ption value="<?php echo $n; ?>" <?php if(@$detail['e_km'] == $n) { echo 'selected'; } ?>><?php echo $n; ?></option>
+            <object></object><option value="<?php echo $n; ?>" <?php if(@$detail['e_km'] == $n) { echo 'selected'; } ?>><?php echo $n; ?></option>
             <?php } ?>
         </select>
         </select>
@@ -419,10 +419,23 @@
 
 </div>
 
-
-
     </div>
 
+<div class="row">
+    <div class="col-md-3 col-md-offset-3">
+<label class="btn btn-info">
+<input type="checkbox" name="inspecao" id="inspecao" value="1" <?php if(@$detail['b_inspecao'] == 1) { echo 'checked="yes"'; } ?> /> <?php _e('Incluir SafeCarros Certifica', 'cars_attributes'); ?></label>
+</div>
+ <div class="col-md-6 col-md-offset-3">
+<p>São 150 itens mecânicos vistoriados por R$ 150, em 45 minutos de vistoria. É agendar, realizar, e pronto. Mais credibilidade ao seu anúncio e mais destaque na listagem de classificados do SafeCarros</p>
+    </div>
+           </div>
+        
+
+
+
+
+    
 <script type="text/javascript">
     tabberAutomatic();
 </script>
