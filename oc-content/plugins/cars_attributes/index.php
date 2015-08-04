@@ -20,7 +20,7 @@ Plugin update URI: cars-attributes
             switch($key) {
                 case 'type':
                     if( is_numeric($value) ) {
-                        Search::newInstance()->addConditions(sprintf("%st_item_car_attr.fk_vehicle_type_id = %d", DB_TABLE_PREFIX, $value));
+                        Search::newInstance()->addConditions(sprintf("%st_item_car_attr.fk_i_vehicle_type_id = %d", DB_TABLE_PREFIX, $value));
                         $has_conditions = true;
                     }
                 break;
@@ -74,16 +74,22 @@ Plugin update URI: cars-attributes
         // check if the category is the same as our plugin
         if( osc_is_this_category('cars_plugin', $catID) ) {
             $makes = ModelCars::newInstance()->getCarMakes();
-            $data  = ModelCars::newInstance()->getVehiclesType();
-            $car_types = array();
-            foreach($data as $d) {
-                $car_types[$d['fk_vehicle_type_id']][$d['pk_i_id']] = $d['s_name'];
-            }
-            unset($data);
+            //$data  = ModelCars::newInstance()->getVehiclesType();
+            
+            //foreach($data as $d) {
+              //  $car_types[$d['fk_vehicle_type_id']][$d['pk_i_id']] = $d['s_name'];
+           // } 
+           // unset($data);
             $models = array();
             if(Session::newInstance()->_getForm('pc_make') != '') {
                 $models = ModelCars::newInstance()->getCarModels(Session::newInstance()->_getForm('pc_make'));
             }
+
+$car_types = array();
+            if(Session::newInstance()->_getForm('pc_model') != '') {
+                $car_types = ModelCars::newInstance()->getVehiclesType(Session::newInstance()->_getForm('pc_model'));
+            }
+
             require_once 'item_edit.php';
         }
     }
@@ -130,7 +136,7 @@ Plugin update URI: cars-attributes
 
             $make     = ModelCars::newInstance()->getCarMakeById( $detail['fk_i_make_id'] );
             $model    = ModelCars::newInstance()->getCarModelById( $detail['fk_i_model_id'] );
-            $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_vehicle_type_id']);
+            $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_i_vehicle_type_id']);
 
             $detail['s_make'] = '' ;
             if( array_key_exists('s_name', $make) ) {
@@ -159,7 +165,7 @@ function cars_makemodel() {
 
             $make     = ModelCars::newInstance()->getCarMakeById( $detail['fk_i_make_id'] );
             $model    = ModelCars::newInstance()->getCarModelById( $detail['fk_i_model_id'] );
-            $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_vehicle_type_id']);
+            $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_i_vehicle_type_id']);
 
             $detail['s_make'] = '' ;
             if( array_key_exists('s_name', $make) ) {
@@ -188,7 +194,7 @@ function cars_makemodel() {
 
             $make     = ModelCars::newInstance()->getCarMakeById( $detail['fk_i_make_id'] );
             $model    = ModelCars::newInstance()->getCarModelById( $detail['fk_i_model_id'] );
-            $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_vehicle_type_id']);
+            $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_i_vehicle_type_id']);
 
             $detail['s_make'] = '' ;
             if( array_key_exists('s_name', $make) ) {
@@ -217,9 +223,9 @@ function cars_makemodel() {
             if( array_key_exists('fk_i_make_id', $detail) ) {
                 $models = ModelCars::newInstance()->getCarModels( $detail['fk_i_make_id'] );
             }
-            $car_type = array() ;
-            if( array_key_exists('fk_i_make_id', $detail) ) {
-                $car_type = ModelCars::newInstance()->getVehiclesType( $detail['fk_i_make_id'] );
+            $car_types = array() ;
+            if( array_key_exists('fk_i_model_id', $detail) ) {
+                $car_types = ModelCars::newInstance()->getVehiclesType( $detail['fk_i_model_id'] );
             }
 
             require_once 'item_edit.php';
@@ -399,7 +405,7 @@ function cars_makemodel() {
     function _getCarParameters() {
         $make     = (Params::getParam("make") == '') ? null : Params::getParam("make");
         $model    = (Params::getParam("model") == '') ? null : Params::getParam("model");
-        $type     = (Params::getParam("car_type") == '') ? null : Params::getParam("car_type");
+        $car_type = (Params::getParam("car_type") == '') ? null : Params::getParam("car_type");
        
        
        
@@ -473,7 +479,7 @@ function cars_makemodel() {
             'new'           => $new,           
             'make'          => $make,
             'model'         => $model,
-            'type'          => $type
+            'type'          => $car_type
         );
 
         return $array;

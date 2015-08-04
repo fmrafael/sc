@@ -29,6 +29,40 @@
                 $("#model").html(result);
              }
         });
+
+ $("#model").change(function(){
+            var model_id = $(this).val();
+            var url = '<?php echo osc_ajax_plugin_url('cars_attributes/ajax.php') . '&modelId='; ?>' + model_id;
+            var result = '';
+            if(model_id != '') {
+                $("#car_type").attr('disabled',false);
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    dataType: 'json',
+                    success: function(data){
+                        var length = data.length;
+                        if(length > 0) {
+                            result += '<option value="" selected><?php _e('Select a model', 'cars_attributes'); ?></option>';
+                            for(key in data) {
+                                result += '<option value="' + data[key].pk_i_id + '">' + data[key].s_name + '</option>';
+                            }
+                        } else {
+                            result += '<option value=""><?php _e('No results', 'cars_attributes'); ?></option>';
+                        }
+                        $("#car_type").html(result);
+                    }
+                 });
+             } else {
+                result += '<option value="" selected><?php _e('Select a model', 'cars_attributes'); ?></option>';
+                $("#car_type").attr('disabled',true);
+                $("#car_type").html(result);
+             }
+        });
+
+
+
+
     });
 </script>
 <h2><?php _e('Car details', 'cars_attributes') ; ?></h2>
@@ -63,41 +97,22 @@
         </select>
     </div>
 
-    <div class="col-sm-4">
-        <?php $locales = osc_get_locales();
-        if( Session::newInstance()->_getForm('pc_car_type') != '' ) {
-            $detail['fk_vehicle_type_id'] = Session::newInstance()->_getForm('pc_car_type');
-        }
-        if(count($locales)==1) {
-            $locale = $locales[0]; ?>
-            <p>
-                <label><?php _e('Car type', 'cars_attributes'); ?></label>
-                <select name="car_type" id="car_type">
-                    <option value="" selected><?php _e('Select a car type', 'cars_attributes'); ?></option>
-                    <?php foreach($car_types as $k) { ?>
-                    <option value="<?php echo  $k['pk_i_id']; ?>" <?php if(@$detail['fk_vehicle_type_id'] == $k['pk_i_id']) { echo 'selected'; } ?>><?php echo @$k['s_name']; ?></option>
-                    <?php } ?>
-                </select>
-            </p>
-        <?php } else { ?>
-            <div class="tabber">
-            <?php foreach($locales as $locale) {?>
-                <div class="tabbertab">
-                    <h2><?php echo $locale['s_name']; ?></h2>
-                    <p>
-                        <label><?php _e('Car type', 'cars_attributes'); ?></label>
-                        <select name="car_type" id="car_type">
-                            <option value="" selected><?php _e('Select a car type', 'cars_attributes'); ?></option>
-                            <?php foreach($car_types as $k) { ?>
-                    <option value="<?php echo  $k['pk_i_id']; ?>" <?php if(@$detail['fk_vehicle_type_id'] == $k['pk_i_id']) { echo 'selected'; } ?>><?php echo @$k['s_name']; ?></option>
-                    <?php } ?>
-                        </select>
-                    </p>
-                </div>
+       <div class="col-sm-4">
+        <?php
+            if( Session::newInstance()->_getForm('pc_car_type') != '' ) {
+                $detail['fk_i_vehicle_type_id'] = Session::newInstance()->_getForm('pc_car_type');
+            }
+        ?>
+        <label><?php _e('Car Type', 'cars_attributes'); ?></label>
+        <select name="car_type" id="car_type">
+            <option value="" selected><?php _e('Select a model', 'cars_attributes'); ?></option>
+            <?php foreach($car_types as $a) { ?>
+            <option value="<?php echo $a['pk_i_id']; ?>" <?php if(@$detail['fk_i_vehicle_type_id'] == $a['pk_i_id']) { echo 'selected'; } ?>><?php echo $a['s_name']; ?></option>
             <?php } ?>
-            </div>
-            </div>
-        <?php } ?>
+        </select>
+    </div>
+
+
     </div>
     <div class="row">
     <div class="col-sm-4">

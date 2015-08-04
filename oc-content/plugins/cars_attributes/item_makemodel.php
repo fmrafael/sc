@@ -7,13 +7,13 @@
     <?php } ?>
     <?php if( !empty($detail['s_model']) ) { ?>
     <div class="col-md-4">        
-        <label width="150px"><?php echo @$detail['s_model']; ?></label>
+        <label width="150px"><?php echo @$detail['s_model']; ?></label></div>
  
     <?php } ?>
-    <?php $locale = osc_current_user_locale(); ?>
-    <?php if( !empty($detail['locale'][$locale]['s_car_type']) ) { ?>
+ 
+    <?php if( !empty($detail['s_car_type']) ) { ?>
     <div class="col-md-4">        
-        <label width="150px"><?php echo @$detail['locale'][$locale]['s_car_type']; ?></label>
+        <label width="150px"><?php echo @$detail['s_car_type']; ?></label>
 	</div>	
     <?php } ?>
     

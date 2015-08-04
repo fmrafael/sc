@@ -26,4 +26,9 @@
         echo json_encode($models) ;
     }
 
+    if( Params::getParam("modelId") != '' ) {
+        $car_types = ModelCars::newInstance()->getVehiclesType( Params::getParam("modelId") );
+        echo json_encode($car_types) ;
+    }
+
 ?>

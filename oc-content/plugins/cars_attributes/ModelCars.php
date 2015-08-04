@@ -235,7 +235,7 @@
             $this->dao->select() ;
             $this->dao->from( $this->getTable_CarVehicleType() ) ;
              $this->dao->where('fk_i_model_id', $modelId) ;
-            $this->dao->orderBy('s_name', 'ASC') ;
+            $this->dao->orderBy('s_name', 'A1') ;
             
             $results = $this->dao->get();
             if( !$results ) {
@@ -335,10 +335,10 @@
         {
             $aSet = array(
                 
-                'fk_vehicle_type_id'      => $modelId,
+                'fk_i_model_id'      => $modelId,
                 's_name'            => $name
             );
-            return $this->dao->insert($this->getTable_CarVehicleType(), $aSet) ;
+            return $this->dao->insert($this->getTable_CarVehicleType(), $aSet);
         }
         
         /**
@@ -384,7 +384,7 @@
          */
         public function updateVehicleType($typeId, $makeId, $name)
         {
-         return $this->_update($this->getTable_CarModel(), array('s_name' => $name), array('pk_i_id' => $typeId, 'fk_i_model_id' => $modelId));
+         return $this->_update($this->getTable_CarVehicleType(), array('s_name' => $name), array('pk_i_id' => $typeId, 'fk_i_model_id' => $modelId));
         }
         
         /**
@@ -485,7 +485,7 @@
                    
                 'fk_i_make_id'      => $arrayInsert['make'],
                 'fk_i_model_id'     => $arrayInsert['model'],
-                'fk_vehicle_type_id'=> $arrayInsert['type']
+                'fk_i_vehicle_type_id'=> $arrayInsert['type']
             );
             return $array;
         }

@@ -145,7 +145,7 @@
             <div class="row">
               <div class="col-md-3  col-md-offset-2">
                
-        <select name="make" id="make" >
+        <select name="make" id="make">
             <option value=""><?php  _e('Marca: Todas', 'cars_attributes'); ?></option>
             <?php foreach($makes as $m) { ?>
                 <option value="<?php echo $m['pk_i_id']; ?>" <?php if($make == $m['pk_i_id']) { echo 'selected'; } ?>><?php echo $m['s_name']; ?></option>
