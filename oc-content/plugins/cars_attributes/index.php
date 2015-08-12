@@ -18,7 +18,7 @@ Plugin update URI: cars-attributes
         foreach($params as $key => $value) {
             // we may want to have param-specific searches
             switch($key) {
-                case 'type':
+                case 'car_type':
                     if( is_numeric($value) ) {
                         Search::newInstance()->addConditions(sprintf("%st_item_car_attr.fk_i_vehicle_type_id = %d", DB_TABLE_PREFIX, $value));
                         $has_conditions = true;
@@ -85,7 +85,7 @@ Plugin update URI: cars-attributes
                 $models = ModelCars::newInstance()->getCarModels(Session::newInstance()->_getForm('pc_make'));
             }
 
-$car_types = array();
+            $car_types = array();
             if(Session::newInstance()->_getForm('pc_model') != '') {
                 $car_types = ModelCars::newInstance()->getVehiclesType(Session::newInstance()->_getForm('pc_model'));
             }
@@ -136,7 +136,7 @@ $car_types = array();
 
             $make     = ModelCars::newInstance()->getCarMakeById( $detail['fk_i_make_id'] );
             $model    = ModelCars::newInstance()->getCarModelById( $detail['fk_i_model_id'] );
-            $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_i_vehicle_type_id']);
+            $car_type = ModelCars::newInstance()->getVehicleTypeById( $detail['fk_i_vehicle_type_id'] );
 
             $detail['s_make'] = '' ;
             if( array_key_exists('s_name', $make) ) {
@@ -156,16 +156,13 @@ $car_types = array();
     }
 
 function cars_makemodel() {
-        if( osc_is_this_category('cars_plugin', osc_item_category_id()) ) {
+      
             $detail   = ModelCars::newInstance()->getCarAttr(osc_item_id()) ;
 
-            if( count($detail) == 0 ) {
-                return ;
-            }
-
+           
             $make     = ModelCars::newInstance()->getCarMakeById( $detail['fk_i_make_id'] );
             $model    = ModelCars::newInstance()->getCarModelById( $detail['fk_i_model_id'] );
-            $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_i_vehicle_type_id']);
+            $car_type = ModelCars::newInstance()->getVehicleTypeById( $detail['fk_i_vehicle_type_id'] );
 
             $detail['s_make'] = '' ;
             if( array_key_exists('s_name', $make) ) {
@@ -181,17 +178,12 @@ function cars_makemodel() {
             }
 
             require_once 'item_makemodel.php' ;
-        }
+        
     }     
 
     function cars_makemodel2() {
-        if( osc_is_this_category('cars_plugin', osc_item_category_id()) ) {
-            $detail   = ModelCars::newInstance()->getCarAttr(osc_item_id()) ;
-
-            if( count($detail) == 0 ) {
-                return ;
-            }
-
+      
+            $detail   = ModelCars::newInstance()->getCarAttr(osc_item_id()) ;    
             $make     = ModelCars::newInstance()->getCarMakeById( $detail['fk_i_make_id'] );
             $model    = ModelCars::newInstance()->getCarModelById( $detail['fk_i_model_id'] );
             $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_i_vehicle_type_id']);
@@ -210,7 +202,7 @@ function cars_makemodel() {
             }
 
             require_once 'item_makemodel2.php' ;
-        }
+       
     }     
 
 
@@ -298,8 +290,8 @@ function cars_makemodel() {
 
 
 
-        $airbag = (Params::getParam("ar_condicionado") != '') ? 1 : 0 ;
-        $freios_abs = (Params::getParam("teto_solar") != '') ? 1 : 0 ;
+        $airbag = (Params::getParam("airbag") != '') ? 1 : 0 ;
+        $freiosabs = (Params::getParam("freiosabs") != '') ? 1 : 0 ;
         $controle_tracao = (Params::getParam("direcao_hidraulica") != '') ? 1 : 0 ;
         $quatro = (Params::getParam("quatro") != '') ? 1 : 0 ;
         $computador_bordo = (Params::getParam("computador_bordo") != '') ? 1 : 0 ;
@@ -340,7 +332,7 @@ function cars_makemodel() {
         Session::newInstance()->_setForm('pc_piloto', $piloto);
 
         Session::newInstance()->_setForm('pc_airbag', $ar_condicionado);
-        Session::newInstance()->_setForm('pc_freios_abs', $teto_solar);
+        Session::newInstance()->_setForm('pc_freios_abs', $freios_abs);
         Session::newInstance()->_setForm('pc_controle_tracao', $direcao_hidraulica);
         Session::newInstance()->_setForm('pc_quatro', $trio_eletrico);
         Session::newInstance()->_setForm('pc_computador_bordo', $bancos_couro);

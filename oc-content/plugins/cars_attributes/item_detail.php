@@ -11,14 +11,14 @@
     <?php if( !empty($detail['s_model']) ) { ?>
     <tr>
         <td width="150px"><label><?php _e('Model', 'cars_attributes'); ?></label></td>
-        <td width="150px"><?php echo @$detail['s_model']; ?></td>
+        <td width="150px"><?php echo @$detail['s_model']; ?></td>   
     </tr>
     <?php } ?>
-    <?php $locale = osc_current_user_locale(); ?>
-    <?php if( !empty($detail['locale'][$locale]['s_car_type']) ) { ?>
+   
+    <?php if( !empty($detail['fk_i_vehicle_type_id']) ) { ?>
     <tr>
         <td width="150px"><label><?php _e('Car type', 'cars_attributes'); ?></label></td>
-        <td width="150px"><?php echo @$detail['locale'][$locale]['s_car_type']; ?></td>
+        <td width="150px"><?php echo @$detail['s_car_type']; ?></td>
     </tr>
     <?php } ?>
     <?php if( !empty($detail['i_year']) ) { ?>

@@ -50,10 +50,10 @@ $cols = 3;
         <a class="listing-thumb" href="<?php echo osc_item_url() ; ?>" title="<?php echo osc_esc_html(osc_item_title()) ; ?>"><img src="<?php echo osc_current_web_theme_url('images/no_photo.gif'); ?>" title="" alt="<?php echo osc_esc_html(osc_item_title()) ; ?>" width="<?php echo $size[0]; ?>" height="<?php echo $size[1]; ?>" class="img-responsive"></a>
         <?php } ?>
         <?php } ?>
-        <span class="ribbon"> <i class="fa fa-star"></i> </span> </figure>
+        <span class="ribbon"> <i class="fa fa-thumbs-up"></i> </span> </figure>
     </div>
     <div class="listing-attr">
-      <h4><a href="<?php echo osc_item_url() ; ?>" title="<?php echo osc_esc_html(osc_item_title()) ; ?>"><?php echo osc_highlight(strip_tags(cars_makemodel2()),40) ; ?></a></h4>
+      <h4><a href="<?php echo osc_item_url() ; ?>" title="<?php echo osc_esc_html(osc_item_title()) ; ?>"><?php echo osc_esc_html(strip_tags(cars_makemodel2()),400) ; ?></a></h4>
       <article> <span class="category"><i class="fa fa-<?php echo osclasswizards_category_icon( osc_item_category_id() ); ?>"></i> </span> <span class="location"> <i class="fa fa-map-marker"></i> <?php echo osc_item_city(); ?>
         <?php if( osc_item_region()!='' ) { ?>
         (<?php echo osc_item_region(); ?>)
@@ -110,7 +110,7 @@ $cols = 3;
         <a class="listing-thumb" href="<?php echo osc_premium_url() ; ?>" title="<?php echo osc_esc_html(osc_premium_title()) ; ?>"><img class="img-responsive" src="<?php echo osc_current_web_theme_url('images/no_photo.gif'); ?>" title="" alt="<?php echo osc_esc_html(osc_premium_title()) ; ?>" width="<?php echo $size[0]; ?>" height="<?php echo $size[1]; ?>"></a>
         <?php } ?>
         <?php } ?>
-        <span class="ribbon"> <i class="fa fa-star"></i> </span> </figure>
+        <span class="ribbon"> <i class="fa fa-thumbs-up"></i> </span> </figure>
     </div>
     <div class="listing-attr">
       <h4><a href="<?php echo osc_premium_url() ; ?>" title="<?php echo osc_esc_html(osc_premium_title()) ; ?>"><?php echo osc_highlight(strip_tags(osc_premium_title()),40) ; ?></a></h4>
@@ -171,7 +171,7 @@ $cols = 3;
         <a class="listing-thumb" href="<?php echo osc_item_url() ; ?>" title="<?php echo osc_esc_html(osc_item_title()) ; ?>"><img src="<?php echo osc_current_web_theme_url('images/no_photo.gif'); ?>" title="" alt="<?php echo osc_esc_html(osc_item_title()) ; ?>" width="<?php echo $size[0]; ?>" height="<?php echo $size[1]; ?>" class="img-responsive"></a>
         <?php } ?>
         <?php } ?>
-        <span class="ribbon"> <i class="fa fa-star"></i> </span> </figure>
+        <span class="ribbon"> <i class="fa fa-thumbs-up"></i> </span> </figure>
     </div>
     <div class="listing-attr">
       <h4><a href="<?php echo osc_item_url() ; ?>" title="<?php echo osc_esc_html(osc_item_title()) ; ?>"><?php echo osc_highlight(strip_tags(cars_makemodel2()),40) ; ?></a></h4>

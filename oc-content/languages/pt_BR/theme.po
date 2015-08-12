@@ -368,7 +368,7 @@ msgstr "Informação Geral"
 
 #: item-post.php:53
 msgid "Category"
-msgstr "Tipo de veículo"
+msgstr "Categoria"
 
 #: item-post.php:59 item.php:204
 msgid "Title"

@@ -100,7 +100,7 @@
         
         /**
          * Import sql file
-         * @param type $file 
+         * @return type $file 
          */
         public function import($file)
         {
@@ -256,19 +256,20 @@
             $this->dao->select();
             $this->dao->from( $this->getTable_CarVehicleType());
             $this->dao->where('pk_i_id', $id );
-            
             $result = $this->dao->get();
+
             if( !$result ) {
                 return array() ;
             }
 
-            return $result->result();
+            return $result->row();
         }
         
         /**
-         * Return last id inserted into cars vehicle type table
-         * 
-         * @return int 
+         * Get all vehicle types, if locale is set, results are filtered by given locale
+         *
+         * @param string $locale
+         * @return array
          */
         public function getLastVehicleTypeId()
         {
@@ -469,13 +470,13 @@
                 'b_roda_liga' => $arrayInsert['roda_liga'],
                 'b_piloto' => $arrayInsert['piloto'],
 
-                'b_airbag' => $arrayInsert['b_airbag'],
-                'b_freios_abs' => $arrayInsert['freioabs'],
+                'b_airbag' => $arrayInsert['airbag'],
+                'b_freios_abs' => $arrayInsert['freios_abs'],
                 'b_controle_tracao' => $arrayInsert['controle_tracao'],
                 'b_quatro' => $arrayInsert['quatro'],
-                'b_computador_bordo' => $arrayInsert['b_computador_bordo'],
-                'b_bluetooth' => $arrayInsert['b_bluetooth'],
-                'b_entrada_mp3' => $arrayInsert['b_entrada_mp3'],
+                'b_computador_bordo' => $arrayInsert['computador_bordo'],
+                'b_bluetooth' => $arrayInsert['bluetooth'],
+                'b_entrada_mp3' => $arrayInsert['entrada_mp3'],
                 'b_gps' => $arrayInsert['gps'],
                 'b_inspecao' => $arrayInsert['inspecao'],
 

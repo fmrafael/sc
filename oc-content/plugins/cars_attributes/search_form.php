@@ -2,7 +2,7 @@
     $(document).ready(function(){
         $("#make").change(function(){
             var make_id = $(this).val();
-            var url = '<?php echo osc_ajax_plugin_url("cars_attributes/ajax.php") . "&makeId="; ?>' + make_id;
+            var url = '<?php echo osc_ajax_plugin_url('cars_attributes/ajax.php') . '&makeId='; ?>' + make_id;
             var result = '';
             if(make_id != '') {
                 $("#model").attr('disabled',false);
@@ -13,7 +13,7 @@
                     success: function(data){
                         var length = data.length;
                         if(length > 0) {
-                            result += '<option value=""><?php _e("Select a model", 'cars_attributes'); ?></option>';
+                            result += '<option value="" selected><?php _e('Select a model', 'cars_attributes'); ?></option>';
                             for(key in data) {
                                 result += '<option value="' + data[key].pk_i_id + '">' + data[key].s_name + '</option>';
                             }
@@ -24,9 +24,45 @@
                     }
                  });
              } else {
+                result += '<option value="" selected><?php _e('Select a model', 'cars_attributes'); ?></option>';
                 $("#model").attr('disabled',true);
+                $("#model").html(result);
              }
         });
+
+ $("#model").change(function(){
+            var model_id = $(this).val();
+            var url = '<?php echo osc_ajax_plugin_url('cars_attributes/ajax.php') . '&modelId='; ?>' + model_id;
+            var result = '';
+            if(model_id != '') {
+                $("#car_type").attr('disabled',false);
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    dataType: 'json',
+                    success: function(data){
+                        var length = data.length;
+                        if(length > 0) {
+                            result += '<option value="" selected><?php _e('Select a model', 'cars_attributes'); ?></option>';
+                            for(key in data) {
+                                result += '<option value="' + data[key].pk_i_id + '">' + data[key].s_name + '</option>';
+                            }
+                        } else {
+                            result += '<option value=""><?php _e('No results', 'cars_attributes'); ?></option>';
+                        }
+                        $("#car_type").html(result);
+                    }
+                 });
+             } else {
+                result += '<option value="" selected><?php _e('Select a model', 'cars_attributes'); ?></option>';
+                $("#car_type").attr('disabled',true);
+                $("#car_type").html(result);
+             }
+        });
+
+
+
+
     });
 </script>
 <?php 
@@ -65,10 +101,10 @@
     </div>
     <div class="row one_input">
         <h6><?php _e('Car type', 'cars_attributes'); ?></h6>
-        <select name="type" id="type">
+        <select name="car_type" id="car_type">
             <option value=""><?php _e('Select a car type', 'cars_attributes'); ?></option>
-            <?php foreach($types as $p) { ?>
-                <option value="<?php echo $p['pk_i_id']; ?>" <?php if($type==$p['pk_i_id']) { echo 'selected'; } ?>><?php echo $p['s_name']; ?></option>
+            <?php foreach($car_types as $p) { ?>
+                <option value="<?php echo $p['pk_i_id']; ?>" <?php if($car_types==$p['pk_i_id']) { echo 'selected'; } ?>><?php echo $p['s_name']; ?></option>
             <?php } ?>
         </select>
     </div>

@@ -99,13 +99,13 @@
 
        <div class="col-sm-4">
         <?php
-            if( Session::newInstance()->_getForm('pc_car_type') != '' ) {
-                $detail['fk_i_vehicle_type_id'] = Session::newInstance()->_getForm('pc_car_type');
+            if( Session::newInstance()->_getForm('pc_type') != '' ) {
+                $detail['fk_i_vehicle_type_id'] = Session::newInstance()->_getForm('pc_type');
             }
         ?>
-        <label><?php _e('Car Type', 'cars_attributes'); ?></label>
+        <label><?php _e('Versão', 'cars_attributes'); ?></label>
         <select name="car_type" id="car_type">
-            <option value="" selected><?php _e('Select a model', 'cars_attributes'); ?></option>
+            <option value="" selected><?php _e('Selecione a versão', 'cars_attributes'); ?></option>
             <?php foreach($car_types as $a) { ?>
             <option value="<?php echo $a['pk_i_id']; ?>" <?php if(@$detail['fk_i_vehicle_type_id'] == $a['pk_i_id']) { echo 'selected'; } ?>><?php echo $a['s_name']; ?></option>
             <?php } ?>
@@ -121,7 +121,7 @@
                 $detail['i_year'] = Session::newInstance()->_getForm('pc_year');
             }
         ?>
-        <label><?php _e('Year', 'cars_attributes'); ?></label>
+        <label><?php _e('Ano do Modelo', 'cars_attributes'); ?></label>
         <select name="year" id="year">
         <option value=""><?php _e('Select num. of year', 'cars_attributes'); ?></option>
         <?php foreach(range(1999, 2015) as $n) { ?>
@@ -442,7 +442,7 @@
 <input type="checkbox" name="inspecao" id="inspecao" value="1" <?php if(@$detail['b_inspecao'] == 1) { echo 'checked="yes"'; } ?> /> <?php _e('Incluir SafeCarros Certifica', 'cars_attributes'); ?></label>
 </div>
  <div class="col-md-6 col-md-offset-3">
-<p>São 150 itens mecânicos vistoriados por R$ 150, em 45 minutos de vistoria. É agendar, realizar, e pronto. Mais credibilidade ao seu anúncio e mais destaque na listagem de classificados do SafeCarros</p>
+<p>São 150 itens mecânicos vistoriados por R$ 149, em 45 minutos de vistoria. É agendar, realizar, e pronto. Seu certificado de vistoria é emitido. Mais credibilidade ao seu anúncio e mais destaque na listagem de classificados do SafeCarros</p>
     </div>
            </div>
         

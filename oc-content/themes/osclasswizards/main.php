@@ -42,6 +42,8 @@
 
 ?>
 
+
+
 <h1 class="title">
   <?php _e('Premium Listings',OSCLASSWIZARDS_THEME_FOLDER);?>
 </h1>
@@ -63,7 +65,7 @@
             <a class="listing-thumb" href="<?php echo osc_premium_url() ; ?>" title="<?php echo osc_esc_html(osc_premium_title()) ; ?>"><img class="img-responsive" src="<?php echo osc_current_web_theme_url('images/no_photo.gif'); ?>" title="" alt="<?php echo osc_esc_html(osc_premium_title()) ; ?>" width="<?php echo $size[0]; ?>" height="<?php echo $size[1]; ?>"></a>
             <?php } ?>
             <?php } ?>
-            <span class="ribbon"> <i class="fa fa-star"></i> </span> </figure>
+            <span class="ribbon"> <i class="fa fa-thumbs-up"></i> </span> </figure>
         </div>
         <div class="listing-attr">
           <h4><a href="<?php echo osc_premium_url() ; ?>" title="<?php echo osc_esc_html(osc_premium_title()) ; ?>"><?php echo cars_makemodel() ; ?></a></h4>
@@ -92,6 +94,7 @@
         </div>
       </article>
     </li>
+
     <?php
 		if($listcount%4 == 0)
 		{
@@ -105,7 +108,10 @@
 <?php
 	}
  ?>
-<?php osc_run_hook('inside-main'); ?>
+
+<?php osc_current_web_theme_path('tabs.php') ; ?>
+<hr>
+
 <div class="content">
   <div class="title">
     <h1>
@@ -123,6 +129,8 @@
     View::newInstance()->_exportVariableToView("listClass",$listClass);
 	osc_current_web_theme_path($loop_template);
     ?>
+
+
     <?php if( osc_count_latest_items() == osc_max_latest_items() ) { ?>
     <p class="see_more_link"><a href="<?php echo osc_search_show_all_url() ; ?>"> <strong>
       <?php _e('See all listings', OSCLASSWIZARDS_THEME_FOLDER) ; ?>
@@ -130,51 +138,9 @@
     <?php } ?>
     <?php } ?>
   </div>
-  <?php if(osc_get_preference('show_popular', 'osclasswizards_theme') == '1'){?>
-  <div id="tab_filter">
-    <h2 class="title"> <?php echo sprintf(__('Popular in %s', OSCLASSWIZARDS_THEME_FOLDER), osc_page_title()) ; ?> </h2>
-    <?php if(osclasswizards_popular_searches() && osclasswizards_show_popular_searches() ){ ?>
-    <section id='Searches'>
-      <div class="popular_cities">
-        <?php $searches	=	osclasswizards_popular_searches( osclasswizards_popular_searches_limit() ); ?>
-        <ul>
-          <?php foreach($searches as $search){?>
-          <?php if($search['s_search'] !=""){?>
-          <li><a href="<?php echo osc_search_url(array('sPattern' => $search['s_search'])); ?>"><?php echo  $search['s_search']; ?> <em>(<?php echo $search['total']; ?>)</em></a></li>
-          <?php } ?>
-          <?php } ?>
-        </ul>
-      </div>
-    </section>
-    <?php } ?>
-    <?php if(osclasswizards_popular_regions() && osclasswizards_show_popular_regions() ){ ?>
-    <section id='Regions'>
-      <div class="popular_regions">
-        <?php $regions	=	osclasswizards_popular_regions(osclasswizards_popular_regions_limit()); ?>
-        <ul>
-          <?php foreach($regions as $region => $count){?>
-          <li><a href="<?php echo osc_search_url( array( 'sRegion' => $region ) ); ?>"><i class="fa fa-map-marker"></i><?php echo $region; ?> <em>(<?php echo $count; ?>)</em></a></li>
-          <?php } ?>
-        </ul>
-      </div>
-    </section>
-    <?php } ?>
-    <?php if(osclasswizards_popular_citites() && osclasswizards_show_popular_cities() ){ ?>
-    <section id='Cities'>
-      <div class="popular_cities">
-        <?php $cities	=	osclasswizards_popular_citites(osclasswizards_popular_cities_limit()); ?>
-        <ul>
-          <?php foreach($cities as $city => $count){?>
-          <li><a href="<?php echo osc_search_url( array( 'sCity' => $city ) ); ?>"><i class="fa fa-map-marker"></i><?php echo $city; ?> <em>(<?php echo $count; ?>)</em></a></li>
-          <?php } ?>
-        </ul>
-      </div>
-    </section>
-    <?php } ?>
-  </div>
-  <?php } ?>
-  <?php if( osc_get_preference('homepage-728x90', 'osclasswizards_theme') != "") { ?>
-  <div class="ads_home"> <?php echo osc_get_preference('homepage-728x90', 'osclasswizards_theme'); ?> </div>
-  <?php } ?>
+<h2 class="title"> <?php echo sprintf(__('Como Funciona'), osc_page_title()) ; ?> </h2>
+  <?php osc_current_web_theme_path('why.php') ; ?>
+  
+  
 </div>
 <?php osc_current_web_theme_path('footer.php') ; ?>

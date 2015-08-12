@@ -136,7 +136,7 @@ msgstr "Versão"
 #: /var/www/osclass-plugins-git/cars_attributes/item_detail.php:24
 #: /var/www/osclass-plugins-git/cars_attributes/item_edit.php:105
 msgid "Year"
-msgstr "Ano do Modelo"
+msgstr "Ano"
 
 #: /var/www/osclass-plugins-git/cars_attributes/item_detail.php:30
 #: /var/www/osclass-plugins-git/cars_attributes/item_edit.php:114
@@ -267,7 +267,7 @@ msgstr "Sem resultados"
 #: /var/www/osclass-plugins-git/cars_attributes/item_edit.php:88
 #: /var/www/osclass-plugins-git/cars_attributes/search_form.php:68
 msgid "Select a car type"
-msgstr "Selecione a versão"
+msgstr "Selecione versão"
 
 #: /var/www/osclass-plugins-git/cars_attributes/item_edit.php:234
 msgid "Kw"

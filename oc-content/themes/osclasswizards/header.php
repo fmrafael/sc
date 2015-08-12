@@ -91,7 +91,7 @@
         }
 		osc_reset_static_pages();
         ?>
-        <li> <a href="<?php echo osc_contact_url(); ?>">
+        <li> <a href="<?php echo osc_contact_url(); ?>" >
           <?php _e('Contact', OSCLASSWIZARDS_THEME_FOLDER); ?>
           </a> </li>
       </ul>
@@ -130,7 +130,7 @@
         $models = ModelCars::newInstance()->getCarModels($make);
     }
 
-    $types = ModelCars::newInstance()->getVehiclesType(osc_current_user_locale());
+    //$types = ModelCars::newInstance()->getVehiclesType(osc_current_user_locale());
 ?>
 
   <div class="banner_none" id="form_vh_map">
