@@ -1,7 +1,7 @@
 
 <hr>
 
-<div class="container marketing text-center">
+<div class="container text-center">
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-md-6">
@@ -20,7 +20,7 @@
           <br>
           <h1 class="text-center">Suporte integral na transferência da propriedade</h1>
           <h3>Esqueça despachantes. Com o SafeCarros você têm apoio total desde a escolha do veículo até o pagamento e a transferência do certificado de registro do veículo.</h3>
-          <p><a class="btn btn-default" href="#" role="button">Saiba mais &raquo;</a></p>
+          <p><a class="btn btn-default" href="#why" role="button">Saiba mais &raquo;</a></p>
         
         </div><!-- /.col-lg-4 -->
         

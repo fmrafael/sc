@@ -60,6 +60,7 @@ textarea {height: 200px;
 }
 /*custom checkbox*/
  
+ 
 .square, .circle {display: inline-block;
 *display:inline;vertical-align: middle;margin: 0 5px 0 0;padding: 0;cursor: pointer;background: #fff;height: 25px;width: 25px;text-align: center;line-height: 22px;font-size: 12px;
 }

@@ -6,12 +6,12 @@
     </div>
     <?php } ?>
     <?php if( !empty($detail['s_model']) ) { ?>
-    <div class="col-md-4 offset">        
+    <div class="col-md-6-offset-2">        
         <label width="100px"><?php echo @$detail['s_model']; ?></label></div>
  
    <?php } ?>
     <?php if( !empty($detail['s_car_type']) ) { ?>
-    <div class="col-md-4 offset">        
+    <div class="col-md-10">        
         <label width="100px"><?php echo @$detail['s_car_type']; ?></label>
 	</div>
     </div>	

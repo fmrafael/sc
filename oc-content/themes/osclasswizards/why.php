@@ -1,5 +1,5 @@
 
-<div class="jumbotron">
+<div class="jumbotron" id="why">
 	<h1 class="text-center"> Compre seu seminovo em 3 passos</h1></div>	
  
 
@@ -9,7 +9,7 @@
           <p class="lead">Obtenha o relatório completo do veículo e contate o vendedor.</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block" <?php echo '<img src="'.osc_current_web_theme_url('images/how1.png').'"/>'; ?>
         </div>
       </div>
 
@@ -21,7 +21,7 @@
           <p class="lead">Se quer ter certeza do estado real do  carro, nos contate. Iremos inspecionar o carro em mais de 150 itens e entregar um relatório detalhado. </p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block"  <?php echo '<img src="'.osc_current_web_theme_url('images/how2.png').'" />'; ?> 
         </div>
       </div>
 
@@ -33,7 +33,7 @@
           <p class="lead">Cuidamos de toda a papelada para garantir agilidade e segurança na transferência da propriedade.</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block" <?php echo '<img src="'.osc_current_web_theme_url('images/how3.png').'"/>'; ?> 
         </div>
       </div>
 
