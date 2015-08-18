@@ -75,7 +75,7 @@
         </a> </strong> </p>
       <?php } ?>
 
-      <h1 class="title title_code"> <strong><?php echo cars_makemodel(); ?></strong> </h1>
+      <h1 class="title title_code"> <strong><i class="fa fa-car"> <?php echo osc_item_id(); ?></i><?php echo cars_makemodel(); ?></strong> </h1>
       <ul class="item-header">
         <li>
           <?php if( osc_price_enabled_at_items() ) { ?>

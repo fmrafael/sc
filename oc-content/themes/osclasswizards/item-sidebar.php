@@ -25,9 +25,9 @@
   <div class="ads_300"> <?php echo osc_get_preference('sidebar-300x250', 'osclasswizards_theme'); ?> </div>
   <?php } ?>
   <h1 class="title">
-    <?php _e("Contact publisher", OSCLASSWIZARDS_THEME_FOLDER); ?>
+    <?php _e("Contate o anunciante , solicite vistoria do SafeCarros", OSCLASSWIZARDS_THEME_FOLDER); ?>
   </h1>
-  <div id="contact" class="widget-box form-container form-vertical">
+  <div id="contact" class="widget-box form-o aunciantecontainer form-vertical">
     <?php if( osc_item_is_expired () ) { ?>
     <p class="alert_user">
       <?php _e("The listing is expired. You can't contact the publisher.", OSCLASSWIZARDS_THEME_FOLDER); ?>
@@ -148,6 +148,18 @@ div#recaptcha_widget, div#recaptcha_image > img { width:280px; }
     <?php } ?>
   </div>
   <div class="block_list facebook">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="img-circle">
+          <?php echo '<img src="'.osc_current_web_theme_url('images/especialista.jpg').'"/>'; ?></div>   
+      </div>
+      <div class="col-md-8">
+      <h3>Consulte sempre um especialista. Entre em contato com SafeCarros. Agende vistoria e/ou solicite nosso serviço de transferência de documentação.</h3>  </div>
+ </div>
+ <br>
+ <div class="row">
+       <p><a class="btn btn-success" href="<?php echo osc_contact_url(); ?>" role="button">Agendar  vistoria &raquo;</a></p>
+     </div>
     <?php 
 	if( osc_get_preference('facebook-showitem', 'osclasswizards_theme') == "1"){
 		osclasswizards_facebook_like_box();

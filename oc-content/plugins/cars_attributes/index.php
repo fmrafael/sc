@@ -201,7 +201,7 @@ function cars_makemodel() {
                 $detail['s_car_type']  = $car_type['s_name'];
             }
 
-            require_once 'item_makemodel2.php' ;
+            require 'item_makemodel2.php' ;
        
     }     
 
