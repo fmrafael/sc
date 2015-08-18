@@ -177,13 +177,37 @@ function cars_makemodel() {
                 $detail['s_car_type']  = $car_type['s_name'];
             }
 
-            require_once 'item_makemodel.php' ;
+            require 'item_makemodel.php' ;
         
     }     
 
     function cars_makemodel2() {
       
             $detail   = ModelCars::newInstance()->getCarAttr(osc_item_id()) ;    
+            $make     = ModelCars::newInstance()->getCarMakeById( $detail['fk_i_make_id'] );
+            $model    = ModelCars::newInstance()->getCarModelById( $detail['fk_i_model_id'] );
+            $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_i_vehicle_type_id']);
+
+            $detail['s_make'] = '' ;
+            if( array_key_exists('s_name', $make) ) {
+                $detail['s_make']  = $make['s_name'];
+            }
+            $detail['s_model'] = '' ;
+            if( array_key_exists('s_name', $model) ) {
+                $detail['s_model']  = $model['s_name'];
+            }
+            $detail['s_car_type'] = '' ;
+            if( array_key_exists('s_name', $car_type) ) {
+                $detail['s_car_type']  = $car_type['s_name'];
+            }
+
+            require 'item_makemodel2.php' ;
+       
+    }     
+
+    function cars_makemodel_premium() {
+      
+            $detail   = ModelCars::newInstance()->getCarAttr(osc_premium_id()) ;    
             $make     = ModelCars::newInstance()->getCarMakeById( $detail['fk_i_make_id'] );
             $model    = ModelCars::newInstance()->getCarModelById( $detail['fk_i_model_id'] );
             $car_type = ModelCars::newInstance()->getVehicleTypeById($detail['fk_i_vehicle_type_id']);

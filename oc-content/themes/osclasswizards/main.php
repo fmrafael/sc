@@ -68,7 +68,7 @@
             <span class="ribbon"> <i class="fa fa-thumbs-up"></i> </span> </figure>
         </div>
         <div class="listing-attr">
-          <h4><a href="<?php echo osc_premium_url() ; ?>" title="<?php echo osc_esc_html(osc_premium_title()) ; ?>"><?php echo cars_makemodel() ; ?></a></h4>
+          <h4><a href="<?php echo osc_premium_url() ; ?>" title="<?php echo osc_esc_html(osc_premium_title()) ; ?>"><?php echo cars_makemodel_premium()?></a></h4>
           <article> <span class="category"><i class="fa fa-<?php echo osclasswizards_category_icon( osc_premium_category_id() ); ?>"></i></span> <span class="location"><i class="fa fa-map-marker"></i><?php echo osc_premium_city(); ?>
             <?php if(osc_premium_region()!='') { ?>
             (<?php echo osc_premium_region(); ?>)

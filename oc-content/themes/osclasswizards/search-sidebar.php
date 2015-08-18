@@ -59,7 +59,7 @@
 <div class="checkbox">
                   <input type="checkbox" name="bPremium" id="premium" value="1" <?php echo (osc_search_only_premium() ? 'checked' : ''); ?> />
                   <label for="bPremium">
-                    <?php _e('Veículos com SafeCarros Certifica (Inspecionados)', OSCLASSWIZARDS_THEME_FOLDER) ; ?>
+                    <?php _e('Veículos Vistoriados', OSCLASSWIZARDS_THEME_FOLDER) ; ?>
                   </label>
                 </div>
 
