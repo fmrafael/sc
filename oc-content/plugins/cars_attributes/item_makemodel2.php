@@ -12,8 +12,8 @@
  
    <?php } ?>
     <?php if( !empty($detail['s_car_type']) ) { ?>
-    </div>
-    <div class="row">        
+  
+        
         <div class="col-md-12">
         <label width="100px"><?php echo @$detail['s_car_type']; ?></label>
 	   </div>

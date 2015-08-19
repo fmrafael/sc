@@ -33,9 +33,7 @@
       <?php _e("The listing is expired. You can't contact the publisher.", OSCLASSWIZARDS_THEME_FOLDER); ?>
     </p>
     <?php } else if( ( osc_logged_user_id() == osc_item_user_id() ) && osc_logged_user_id() != 0 ) { ?>
-    <p class="alert_user">
-      <?php _e("It's your own listing, you can't contact the publisher.", OSCLASSWIZARDS_THEME_FOLDER); ?>
-    </p>
+    
     <?php } else if( osc_reg_user_can_contact() && !osc_is_web_user_logged_in() ) { ?>
     <p class="alert_user">
       <?php _e("You must log in or register a new account in order to contact the advertiser", OSCLASSWIZARDS_THEME_FOLDER); ?>

@@ -45,7 +45,7 @@
 
 
 <h1 class="title">
-  <?php _e('Premium Listings',OSCLASSWIZARDS_THEME_FOLDER);?>
+  <?php _e('Últimos Carros Vistoriados',OSCLASSWIZARDS_THEME_FOLDER);?>
 </h1>
 <div id="listing-card-list" class="listing-card-list listings_grid listings_grids">
   <ul class="row">

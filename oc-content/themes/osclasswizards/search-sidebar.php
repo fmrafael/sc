@@ -149,8 +149,7 @@
         <?php _e("Compra segura? Só no SafeCarros. Mais de 150 itens mecânicos inspecionados.", OSCLASSWIZARDS_THEME_FOLDER) ; ?>
       </h2>
       <section>
-        <?php osc_alert_form(); ?>
-        <?php _e("Em 45 minutos seu carro é inspecionado e você garante, além do Certificado de Inspeção da SafeCarros em mãos, destaque nos classificados.", OSCLASSWIZARDS_THEME_FOLDER) ; ?>
+          <p><a class="btn btn-success" href="<?php echo osc_contact_url(); ?>" role="button">Agendar  vistoria &raquo;</a></p>
       </section>
     </div>
     <?php 

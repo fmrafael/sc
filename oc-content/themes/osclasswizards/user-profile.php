@@ -99,7 +99,7 @@
         </div>
         <div class="form-group">
           <label class="control-label" for="city_area">
-            <?php _e('City area', OSCLASSWIZARDS_THEME_FOLDER); ?>
+            <?php _e('Bairro', OSCLASSWIZARDS_THEME_FOLDER); ?>
           </label>
           <div class="controls">
             <?php UserForm::city_area_text(osc_user()); ?>
